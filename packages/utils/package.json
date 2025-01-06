@@ -1,0 +1,45 @@
+{
+  "name": "@acanowl/utils",
+  "version": "1.0.0",
+  "description": "CAN utils with typescript",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "dev": "vite build --watch",
+    "build": "vite build",
+    "docs:dev": "concurrently \"typedoc --watch\" \"vitepress dev docs\" ",
+    "docs:build": "typedoc && vitepress build docs",
+    "docs:preview": "vitepress preview docs",
+    "release": "dotenv release-it",
+    "release:ci": "dotenv release-it --ci",
+    "demo:web": "vite",
+    "demo:node": "node test/demo.node.js",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "prepublishOnly": "npm run build"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "keywords": [
+    "typescript library"
+  ],
+  "author": "Eddy Hsu",
+  "license": "MIT",
+  "devDependencies": {
+    "@release-it/conventional-changelog": "^5.1.1",
+    "@vitest/ui": "^1.6.0",
+    "concurrently": "^8.2.2",
+    "dotenv-cli": "^7.4.4",
+    "release-it": "^15.11.0",
+    "vitepress": "1.1.0",
+    "vitest": "^1.6.0",
+    "vue": "^3.5.13"
+  },
+  "dependencies": {
+    "@acanowl/types": "workspace:1.0.0-alpha.1"
+  }
+}

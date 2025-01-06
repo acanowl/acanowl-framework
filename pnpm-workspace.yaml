@@ -1,0 +1,5 @@
+packages:
+  # 主包，存放所有项目的目录
+  - 'packages/*'
+  # 文档
+  - 'docs'

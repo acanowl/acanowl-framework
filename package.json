@@ -1,0 +1,25 @@
+{
+  "name": "can-framework",
+  "version": "1.0.0",
+  "description": "CAN, one framework for development",
+  "private": true,
+  "scripts": {
+    "update": "pnpm -r --filter=./packages/* update",
+    "build": "pnpm -r --filter=./packages/* run prepublishOnly"
+  },
+  "keywords": [],
+  "author": "Eddy Hsu",
+  "license": "MIT",
+  "devDependencies": {
+    "typedoc": "0.25.13",
+    "typedoc-plugin-markdown": "4.0.3",
+    "@eslint/js": "^9.1.1",
+    "@types/node": "^20.12.5",
+    "eslint": "^8.57.0",
+    "globals": "^15.0.0",
+    "typescript": "5.4.4",
+    "typescript-eslint": "^7.7.1",
+    "vite": "^5.2.8",
+    "vite-plugin-dts": "^3.3.1"
+  }
+}

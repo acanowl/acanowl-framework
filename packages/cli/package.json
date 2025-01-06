@@ -1,0 +1,37 @@
+{
+  "name": "@can/cli",
+  "version": "1.0.0",
+  "description": "CAN Development Cli with typescript",
+  "type": "module",
+  "bin": {
+    "c": "dist/index.js"
+  },
+  "scripts": {
+    "dev": "tsup --watch --sourcemap",
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "keywords": [
+    "cli"
+  ],
+  "author": "Eddy Hsu",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/cli-table": "^0.3.4",
+    "@types/prompts": "^2.4.9",
+    "tsup": "^8.3.5"
+  },
+  "dependencies": {
+    "@acanowl/types": "workspace:1.0.0-alpha.1",
+    "@acanowl/utils": "workspace:1.0.0-alpha.1",
+    "cac": "^6.7.14",
+    "cli-table": "^0.3.11",
+    "picocolors": "^1.1.1",
+    "prompts": "^2.4.2"
+  }
+}
