@@ -2,7 +2,7 @@ import { cac } from 'cac'
 
 import { name, version } from '../../package.json'
 
-import { checkNpmVersions, customInstruction } from '@/lib'
+import { checkNpmVersions, customInstruction, defaultAction } from '@/lib'
 
 const [CLI_NAME, CLI_VERSIONS] = [name, version]
 const cli = cac(CLI_NAME)
@@ -20,5 +20,7 @@ cli
   .option('--delete-all', '删除全部指令')
   .option('-l, --list', '查看全部指令')
   .action(customInstruction)
+
+cli.command('[instruction]', '执行指令').action(defaultAction)
 
 cli.version(CLI_VERSIONS).help().parse()
