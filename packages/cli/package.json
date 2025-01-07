@@ -1,5 +1,5 @@
 {
-  "name": "@can/cli",
+  "name": "@acanowl/cli",
   "version": "1.0.0",
   "description": "CAN Development Cli with typescript",
   "type": "module",
@@ -27,8 +27,8 @@
     "tsup": "^8.3.5"
   },
   "dependencies": {
-    "@acanowl/types": "workspace:1.0.0-alpha.1",
-    "@acanowl/utils": "workspace:1.0.0-alpha.1",
+    "@acanowl/types": "workspace:^",
+    "@acanowl/utils": "workspace:^",
     "cac": "^6.7.14",
     "cli-table": "^0.3.11",
     "picocolors": "^1.1.1",
