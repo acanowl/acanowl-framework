@@ -14,10 +14,10 @@
     "docs:preview": "vitepress preview docs",
     "release": "dotenv release-it",
     "release:ci": "dotenv release-it --ci",
-    "demo:web": "vite",
-    "demo:node": "node test/demo.node.js",
     "test": "vitest",
     "test:ui": "vitest --ui",
+    "test:web": "vite",
+    "test:node": "node test/index.node.js",
     "prepublishOnly": "npm run build"
   },
   "files": [
