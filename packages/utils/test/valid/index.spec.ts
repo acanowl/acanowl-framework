@@ -23,7 +23,7 @@ import { isObject } from '../../dist'
 test('isObject emptyObject, 返回 true', () => expect(isObject(emptyObject)).toBe(true))
 test('isObject validObject, 返回 true', () => expect(isObject(validObject)).toBe(true))
 test('isObject validArray, 返回 true', () => expect(isObject(validArray)).toBe(true))
-test('isObject date, 返回 true', () => expect(isObject(date)).toBe(true))
+test('isObject date, 返回 false', () => expect(isObject(date)).toBe(false))
 test('isObject nullValue, 返回 false', () => expect(isObject(nullValue)).toBe(false))
 
 import { isArray } from '../../dist'

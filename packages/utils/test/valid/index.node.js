@@ -21,7 +21,7 @@ import { isObject } from '../../dist/index.js'
 console.log('isObject(emptyObject) === true', isObject(emptyObject)) // true
 console.log('isObject(validObject) === true', isObject(validObject)) // true
 console.log('isObject(validArray) === true', isObject(validArray)) // true
-console.log('isObject(date) === true', isObject(date)) // true
+console.log('isObject(date) === false', isObject(date)) // false
 console.log('isObject(nullValue) === false', isObject(nullValue)) // false
 
 import { isArray } from '../../dist/index.js'

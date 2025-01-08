@@ -10,6 +10,12 @@ export default defineConfig({
       entry: './src/index.ts',
       name: 'UTILS',
       fileName: 'index'
+    },
+    terserOptions: {
+      // compress: {
+      //   keep_infinity: true,
+      //   drop_debugger: false
+      // }
     }
   },
   resolve: {
