@@ -1,4 +1,4 @@
-import type { PlainObject, StrOrNum } from '@acanowl/types'
+import type { PlainObject } from '@acanowl/types'
 import { isArray, isDefined, isPlainObject } from '../valid'
 
 /**
@@ -45,6 +45,8 @@ export const deepClone = <T>(obj: T): T => {
   return objCopy as T
 }
 
+export type Customizer<T = unknown> = (targetValue: T, sourceValue: T) => T
+
 /**
  * @name 深度合并
  * @group 工具函数
@@ -54,44 +56,26 @@ export const deepClone = <T>(obj: T): T => {
  * console.log(deepMerge({ 'a': { 'b': 1 } }, { 'a': { 'a': 1, 'c': 2 } })); // { 'a': { 'a': 1, 'b': 1, 'c': 2 } }
  * ```
  */
-export const deepMerge = <T, U>(target: T, source: U): T & U => {
+export const deepMerge = <T, U>(target: T, source: U, customizer?: Customizer): T & U => {
   // 如果 target 或 source 不是对象或数组，直接返回
-  if (!isDefined(target) || !isDefined(source)) return target as T & U
-  let result = source as T & U
-  let values: StrOrNum[] = []
+  if (!isDefined(target) || !isDefined(source)) {
+    return (source || target) as T & U
+  }
   // 如果 target 和 source 都是对象，进行递归合并
   if (isPlainObject(target) && isPlainObject(source)) {
-    result = deepClone(target) as T & U
-    values = Object.keys(source)
+    const result = deepClone(target) as T & U
+    for (const key in source) {
+      // 如果 key 已存在于 target，递归合并
+      if (Object.prototype.hasOwnProperty.call(source, key)) {
+        result[key] = deepMerge(target[key], source[key], customizer)
+      }
+    }
+    return result
   }
   // 如果 target 和 source 都是数组，进行递归合并
   if (isArray(target) && isArray(source)) {
-    result = deepClone(target) as T & U
-    values = source.map((_item, index) => index)
-  }
-  if (values.length) {
-    values.forEach((key) => {
-      const targetValue = target[key]
-      const sourceValue = source[key]
-      if (isArray(sourceValue) && isArray(targetValue)) {
-        sourceValue.forEach((item, index) => {
-          if (isArray(item) && isArray(targetValue[index])) {
-            // 如果源值是数组，递归合并
-            result[key][index] = [...item, ...targetValue[index]]
-          } else {
-            // 如果源值是数组，直接替换
-            result[key][index] = deepMerge(targetValue[index], item)
-          }
-        })
-      } else if (isPlainObject(sourceValue) && isPlainObject(targetValue)) {
-        // 如果源值是对象，递归合并
-        result[key] = deepMerge(targetValue, sourceValue)
-      } else {
-        // 如果是其他类型，直接覆盖
-        result[key] = sourceValue
-      }
-    })
+    return (customizer ? customizer(target, source) : source) as T & U
   }
   // 如果目标和源都不是对象，则直接返回（对于基本类型）
-  return result
+  return (source || target) as T & U
 }

@@ -4,10 +4,10 @@ const getObjectType = (obj: unknown) => Object.prototype.toString.call(obj).slic
 
 export const isPlainObject = (value: unknown): value is PlainObject => getObjectType(value) === 'Object'
 
-export const isObject = (value: unknown): value is PlainObject | Array<unknown> =>
-  typeof value === 'object' && value !== null
-
 export const isArray = (value: unknown): value is Array<unknown> => getObjectType(value) === 'Array'
+
+export const isObject = (value: unknown): value is PlainObject | Array<unknown> =>
+  isPlainObject(value) || isArray(value)
 
 export const isString = (value: unknown): value is string => getObjectType(value) === 'String'
 
