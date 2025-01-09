@@ -2,12 +2,15 @@ import type { PlainObject } from '@acanowl/types'
 import { isArray, isDefined, isPlainObject } from '../valid'
 
 /**
- * @name 深度克隆
- * @group 工具函数
- * @param name 名称
+ * 深度克隆
+ * @group Object
+ * @param {T} obj 要克隆的对象
+ * @returns {T} 克隆后的对象
  * @example
  * ```ts
- * console.log(deepClone({ 'a': { 'b': 1 } })); // { 'a': { 'b': 1 } }
+ * const object = { 'a': { 'b': 1 } }
+ * console.log(deepClone(object))
+ * output => { 'a': { 'b': 1 } }
  * ```
  */
 export const deepClone = <T>(obj: T): T => {
@@ -48,12 +51,35 @@ export const deepClone = <T>(obj: T): T => {
 export type Customizer<T = unknown> = (targetValue: T, sourceValue: T) => T
 
 /**
- * @name 深度合并
- * @group 工具函数
- * @param name 名称
+ * 深度合并
+ * @group Object
+ * @param {T} target 目标对象
+ * @param {U} source 源对象
+ * @param {Customizer} customizer 数组合并自定义函数
+ * @returns {T & U} 合并后的对象
  * @example
  * ```ts
- * console.log(deepMerge({ 'a': { 'b': 1 } }, { 'a': { 'a': 1, 'c': 2 } })); // { 'a': { 'a': 1, 'b': 1, 'c': 2 } }
+ * const object = { 'a': { 'b': [1, 2] } }
+ * const object2 = { 'a': { 'a': 1, b: [2, 3], 'c': 2 } }
+ * ```
+ * @example
+ * ```ts
+ * console.log(deepMerge(object, object2))
+ * output => { 'a': { 'a': 1, 'b': [2, 3], 'c': 2 } }
+ * ```
+ * @example
+ * ```ts
+ * const customizer = (target, source) => target.concat(source)
+ * console.log(deepMerge(object, object2, customizer))
+ * output => { 'a': { 'a': 1, 'b': [1, 2, 2, 3], 'c': 2 } }
+ * ```
+ * @example
+ * ```ts
+ * const customizer = (target, source) => {
+ *   return [...new Set([...target, ...source])]
+ * }
+ * console.log(deepMerge(object, object2, customizer))
+ * output => { 'a': { 'a': 1, 'b': [1, 2, 3], 'c': 2 } }
  * ```
  */
 export const deepMerge = <T, U>(target: T, source: U, customizer?: Customizer): T & U => {
