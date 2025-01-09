@@ -1,16 +1,36 @@
-import { deepClone, deepMerge } from '../../dist/index.js'
+import { deepClone, deepMerge, isArray } from '../../dist/index.js'
 
-const objectValue1 = { a: 1, b: { c: 2 }, d: [1, 2], e: 'hello' }
-const objectValue2 = { b: { f: 3 }, d: [3, 4], e: 'world', g: true }
+const objectValue1 = {
+  a: 1,
+  b: { c: 2 },
+  d: [1, 2, 5],
+  e: 'hello'
+}
+const objectValue2 = {
+  b: { f: 3 },
+  d: [1, 4],
+  e: 'world',
+  g: true
+}
 
-const arrayValue1 = [{ a: 1, b: { c: 2 }, d: [5, 2], e: 'hello' }]
-const arrayValue2 = [
-  { b: { f: 3 }, d: [3, 4], e: 'world', g: false },
-  { a: 1, b: { c: 2 }, d: [1, 2], e: 'hello' }
-]
+const cloneValue1 = deepClone(objectValue1)
 
 console.log('deepClone objectValue1: ', deepClone(objectValue1))
-console.log('deepMerge objectValue2: ', deepMerge(objectValue1, objectValue2))
+console.log('cloneValue1 === objectValue1: ', cloneValue1 === objectValue1)
+console.log('cloneValue1 === objectValue1: ', cloneValue1.b === objectValue1.b)
 
-console.log('deepClone arrayValue1: ', deepClone(arrayValue1))
-console.log('deepMerge arrayValue2: ', deepMerge(arrayValue1, arrayValue2))
+console.log('deepClone objectValue2: ', deepMerge(objectValue1, objectValue2))
+
+const customizer = (targetValue: unknown, sourceValue: unknown) => {
+  if (isArray(targetValue) && isArray(sourceValue)) {
+    return targetValue.concat(sourceValue)
+  }
+}
+console.log('deepMerge objectValue2 concat: ', deepMerge(objectValue1, objectValue2, customizer))
+
+const setCustomizer = (targetValue: unknown, sourceValue: unknown) => {
+  if (isArray(targetValue) && isArray(sourceValue)) {
+    return [...new Set([...targetValue, ...sourceValue])]
+  }
+}
+console.log('deepMerge objectValue2 setCustomizer: ', deepMerge(objectValue1, objectValue2, setCustomizer))
