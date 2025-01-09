@@ -1,9 +1,9 @@
-import { defineConfig } from 'vitepress';
-import pkg from '../../package.json';
-import navigation from './navigation.json';
+import { defineConfig } from 'vitepress'
+import pkg from '../../package.json'
+import navigation from './navigation.json'
 
 export default defineConfig({
-  description: '一个开箱即用的 Javascript 工具库',
+  description: 'typescript 工具库',
   base: '/',
   appearance: 'dark',
   markdown: {
@@ -14,8 +14,8 @@ export default defineConfig({
       label: '简体中文',
       lang: 'zh',
       dir: '/',
-      title: 'MyUtils',
-      description: '一个开箱即用的 Javascript 工具库'
+      title: '@acanowl/util',
+      description: 'typescript 工具库'
     }
   },
   lastUpdated: true,
@@ -27,28 +27,28 @@ export default defineConfig({
     },
     footer: {
       message: 'Released under the MIT License.',
-      copyright: 'Copyright © 2023-present hacxy'
+      copyright: 'Copyright © 2025-present Hsu'
     },
     nav: [
       {
         text: `v${pkg.version}`,
-        items: [{ text: '更新日志', link: 'CHANGELOG' }]
+        items: [{ text: '更新日志', link: 'src/documents/CHANGELOG' }]
       }
     ],
     socialLinks: [
       {
         icon: 'github',
-        link: 'https://github.com/hacxy/library-complete-template'
+        link: 'https://github.com/acanowl/acanowl-framework/tree/master/packages/utils'
       }
     ],
     search: {
       provider: 'local',
       options: {
         _render(src, env, md) {
-          const html = md.render(src, env);
-          if (env.frontmatter?.search === false) return '';
-          if (env.relativePath.startsWith('docs/modules')) return '';
-          return html;
+          const html = md.render(src, env)
+          if (env.frontmatter?.search === false) return ''
+          if (env.relativePath.startsWith('docs/modules')) return ''
+          return html
         },
         locales: {
           root: {
@@ -71,4 +71,4 @@ export default defineConfig({
       }
     }
   }
-});
+})

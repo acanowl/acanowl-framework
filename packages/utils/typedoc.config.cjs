@@ -7,6 +7,7 @@ module.exports = {
   hideBreadcrumbs: true,
   parametersFormat: 'table',
   typeDeclarationFormat: 'table',
+  projectDocuments: ['./CHANGELOG.md'],
   textContentMappings: {
     'label.returns': '返回值类型',
     'label.name': '名称',
