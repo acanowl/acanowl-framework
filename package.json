@@ -20,8 +20,6 @@
     "eslint": "^8.57.0",
     "globals": "^15.0.0",
     "turbo": "^2.3.3",
-    "typedoc": "0.25.13",
-    "typedoc-plugin-markdown": "4.0.3",
     "typescript": "5.4.4",
     "typescript-eslint": "^7.7.1",
     "vite": "^5.2.8",

@@ -37,6 +37,8 @@
     "release-it": "^15.11.0",
     "vitepress": "1.1.0",
     "vitest": "^1.6.0",
+    "typedoc": "0.27.6",
+    "typedoc-plugin-markdown": "4.4.1",
     "vue": "^3.5.13"
   },
   "dependencies": {
