@@ -18,6 +18,7 @@
     "test:ui": "vitest --ui",
     "test:web": "vite",
     "test:node": "node test/index.node.js",
+    "test:docs": "",
     "prepublishOnly": "npm run build"
   },
   "files": [
