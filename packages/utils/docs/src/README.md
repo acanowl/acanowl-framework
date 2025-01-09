@@ -1,4 +1,4 @@
-**library-complete-template** • [**Docs**](globals.md)
+**@acanowl/utils**
 
 ***
 
@@ -6,7 +6,7 @@
 
 This is a JavaScript library project development template with complete infrastructure and developed using TypeScript to help you quickly build a JavaScript utility library that automatically generates documentation.
 
-English | [简体中文](https://github.com/hacxy/library-complete-template/blob/main/README_zh.md)
+English | [简体中文](https://github.com/acanowl/acanowl-framework/blob/master/packages/utils/README.md)
 
 ## Features
 
@@ -16,7 +16,7 @@ English | [简体中文](https://github.com/hacxy/library-complete-template/blob
 - Comments as documentation, automatically output markdown documents using [typedoc](https://typedoc.org/) and [typedoc-plugin-markdown](https://typedoc-plugin-markdown.org/), driven by [vitepress](https://vitepress.dev/)
 - Unit testing with [vitest](https://vitest.dev/) for a more user-friendly testing experience, supporting UI mode
 
-## 示例s
+## Example
 
 Here are projects currently using this template:
 
@@ -121,7 +121,7 @@ Additional documentation content can also be supplemented in method comments, bu
 /**
  * @name This is a method that says hello.
  * @group Utility functions.
- * @param name 方法名称.
+ * @param name Name.
  * @returns
  * @example
  * ```ts
@@ -129,8 +129,8 @@ Additional documentation content can also be supplemented in method comments, bu
  * ```
  */
 export const sayHello = (name: string): string => {
-  return `Hello, ${name}!`;
-};
+  return `Hello, ${name}!`
+}
 ````
 
 In this example, we enrich the method in the document's title, grouping, parameter description, and code examples. If you have written JSDoc comments before, this should not be unfamiliar to you. However, if you are new to it, please refer to [TypeDoc](https://typedoc.org/guides/overview/) for learning how to write.

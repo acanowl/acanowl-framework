@@ -2,7 +2,7 @@
 
 This is a JavaScript library project development template with complete infrastructure and developed using TypeScript to help you quickly build a JavaScript utility library that automatically generates documentation.
 
-English | [简体中文](https://github.com/hacxy/library-complete-template/blob/main/README_zh.md)
+English | [简体中文](https://github.com/acanowl/acanowl-framework/blob/master/packages/utils/README.md)
 
 ## Features
 
@@ -12,7 +12,7 @@ English | [简体中文](https://github.com/hacxy/library-complete-template/blob
 - Comments as documentation, automatically output markdown documents using [typedoc](https://typedoc.org/) and [typedoc-plugin-markdown](https://typedoc-plugin-markdown.org/), driven by [vitepress](https://vitepress.dev/)
 - Unit testing with [vitest](https://vitest.dev/) for a more user-friendly testing experience, supporting UI mode
 
-## Examples
+## Example
 
 Here are projects currently using this template:
 
