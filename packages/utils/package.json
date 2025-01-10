@@ -18,7 +18,7 @@
     "test:ui": "vitest --ui",
     "test:web": "vite",
     "test:node": "node test/index.node.js",
-    "test:docs": "",
+    "test:docs": "node test/generate.mjs",
     "prepublishOnly": "npm run build"
   },
   "files": [
@@ -36,13 +36,14 @@
     "concurrently": "^8.2.2",
     "dotenv-cli": "^7.4.4",
     "release-it": "^15.11.0",
-    "vitepress": "1.1.0",
-    "vitest": "^1.6.0",
     "typedoc": "0.27.6",
     "typedoc-plugin-markdown": "4.4.1",
+    "vitepress": "1.1.0",
+    "vitest": "^1.6.0",
     "vue": "^3.5.13"
   },
   "dependencies": {
-    "@acanowl/types": "workspace:^"
+    "@acanowl/types": "workspace:^",
+    "@babel/parser": "^7.26.3"
   }
 }

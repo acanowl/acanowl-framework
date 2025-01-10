@@ -78,6 +78,9 @@ importers:
       '@acanowl/types':
         specifier: workspace:^
         version: link:../types
+      '@babel/parser':
+        specifier: ^7.26.3
+        version: 7.26.3
     devDependencies:
       '@release-it/conventional-changelog':
         specifier: ^5.1.1
