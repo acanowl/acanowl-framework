@@ -6,7 +6,7 @@
 
 > **isFunction**\<`T`\>(`value`): `value is GenFn<T>`
 
-Defined in: [valid/index.ts:125](https://github.com/acanowl/acanowl-framework/blob/e83eea0b29b448bee66564c78f8f3ea4fab8f88b/packages/utils/src/valid/index.ts#L125)
+Defined in: [valid/index.ts:81](https://github.com/acanowl/acanowl-framework/blob/56fbec47a32608dccbd714bce431df6d253fa988/packages/utils/src/valid/index.ts#L81)
 
 是否是函数(包括AsyncFunction)
 
@@ -30,13 +30,30 @@ true | false
 
 ## Example
 
-```ts
-isFunction(() => {})
-outPut => true
+```更多示例```
+### isFunction func, 返回 true
 
-isFunction(async () => {})
-outPut => true
+```typescript
+const func = function () {}
+console.log(isFunction(func))
 
-isFunction(1)
-outPut => false
+/* output => true */
+```
+
+### isFunction asyncfunc, 返回 true
+
+```typescript
+const asyncfunc = async function () {}
+console.log(isFunction(asyncfunc))
+
+/* output => true */
+```
+
+### isFunction nullValue, 返回 false
+
+```typescript
+const nullValue = null
+console.log(isFunction(nullValue))
+
+/* output => false */
 ```

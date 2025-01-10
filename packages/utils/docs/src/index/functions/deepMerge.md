@@ -6,7 +6,7 @@
 
 > **deepMerge**\<`T`, `U`\>(`target`, `source`, `customizer`?): `T` & `U`
 
-Defined in: [object/index.ts:85](https://github.com/acanowl/acanowl-framework/blob/e83eea0b29b448bee66564c78f8f3ea4fab8f88b/packages/utils/src/object/index.ts#L85)
+Defined in: [object/index.ts:61](https://github.com/acanowl/acanowl-framework/blob/56fbec47a32608dccbd714bce431df6d253fa988/packages/utils/src/object/index.ts#L61)
 
 深度合并
 
@@ -31,28 +31,65 @@ Defined in: [object/index.ts:85](https://github.com/acanowl/acanowl-framework/bl
 
 合并后的对象
 
-## Examples
+## Example
 
-```ts
-const object = { 'a': { 'b': [1, 2] } }
-const object2 = { 'a': { 'a': 1, b: [2, 3], 'c': 2 } }
+```更多示例```
+### deepMerge objectValue2
+
+```typescript
+const objectValue = { a: 1, b: { c: 2 }, d: [1, 2, 5], e: 'hello' }
+const objectValue2 = { b: { f: 3 }, d: [1, 4], e: 'world', g: true }
+console.log(deepMerge(objectValue, objectValue2))
+
+/* output => {
+  a: 1,
+  b: { c: 2, f: 3 },
+  d: [1, 4],
+  e: 'world',
+  g: true
+} */
 ```
 
-```ts
-console.log(deepMerge(object, object2))
-output => { 'a': { 'a': 1, 'b': [2, 3], 'c': 2 } }
-```
+### deepMerge objectValue2 concat
 
-```ts
-const customizer = (target, source) => target.concat(source)
-console.log(deepMerge(object, object2, customizer))
-output => { 'a': { 'a': 1, 'b': [1, 2, 2, 3], 'c': 2 } }
-```
+```typescript
+const objectValue = { a: 1, b: { c: 2 }, d: [1, 2, 5], e: 'hello' }
+const objectValue2 = { b: { f: 3 }, d: [1, 4], e: 'world', g: true }
 
-```ts
-const customizer = (target, source) => {
-  return [...new Set([...target, ...source])]
+const customizer = (targetValue: unknown, sourceValue: unknown) => {
+  if (isArray(targetValue) && isArray(sourceValue)) {
+    return targetValue.concat(sourceValue)
+  }
 }
-console.log(deepMerge(object, object2, customizer))
-output => { 'a': { 'a': 1, 'b': [1, 2, 3], 'c': 2 } }
+console.log(deepMerge(objectValue, objectValue2, customizer))
+
+/* output => {
+  a: 1,
+  b: { c: 2, f: 3 },
+  d: [1, 2, 5, 1, 4],
+  e: 'world',
+  g: true
+} */
+```
+
+### deepMerge objectValue2 setCustomizer
+
+```typescript
+const objectValue = { a: 1, b: { c: 2 }, d: [1, 2, 5], e: 'hello' }
+const objectValue2 = { b: { f: 3 }, d: [1, 4], e: 'world', g: true }
+
+const setCustomizer = (targetValue: unknown, sourceValue: unknown) => {
+  if (isArray(targetValue) && isArray(sourceValue)) {
+    return [...new Set([...targetValue, ...sourceValue])]
+  }
+}
+console.log(deepMerge(objectValue, objectValue2, setCustomizer))
+
+/* output => {
+  a: 1,
+  b: { c: 2, f: 3 },
+  d: [1, 2, 5, 4],
+  e: 'world',
+  g: true
+} */
 ```

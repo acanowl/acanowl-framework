@@ -6,7 +6,7 @@
 
 > **deepClone**\<`T`\>(`obj`): `T`
 
-Defined in: [object/index.ts:16](https://github.com/acanowl/acanowl-framework/blob/e83eea0b29b448bee66564c78f8f3ea4fab8f88b/packages/utils/src/object/index.ts#L16)
+Defined in: [object/index.ts:13](https://github.com/acanowl/acanowl-framework/blob/56fbec47a32608dccbd714bce431df6d253fa988/packages/utils/src/object/index.ts#L13)
 
 深度克隆
 
@@ -30,8 +30,32 @@ Defined in: [object/index.ts:16](https://github.com/acanowl/acanowl-framework/bl
 
 ## Example
 
-```ts
-const object = { 'a': { 'b': 1 } }
-console.log(deepClone(object))
-output => { 'a': { 'b': 1 } }
+```更多示例```
+### deepClone objectValue1
+
+```typescript
+const objectValue = { a: 1, b: { c: 2 }, d: [1, 2, 5], e: 'hello' }
+console.log(deepClone(objectValue))
+
+/* output => { a: 1, b: { c: 2 }, d: [1, 2, 5], e: 'hello' } */
+```
+
+### cloneValue1 === objectValue1
+
+```typescript
+const objectValue = { a: 1, b: { c: 2 }, d: [1, 2, 5], e: 'hello' }
+const cloneValue = deepClone(objectValue)
+console.log(cloneValue === objectValue)
+
+/* output => false */
+```
+
+### cloneValue1.b === objectValue1.b
+
+```typescript
+const objectValue = { a: 1, b: { c: 2 }, d: [1, 2, 5], e: 'hello' }
+const cloneValue = deepClone(objectValue)
+console.log(cloneValue.b === objectValue.b)
+
+/* output => false */
 ```

@@ -6,7 +6,7 @@
 
 > **isDefined**\<`T`\>(`value`): `value is T`
 
-Defined in: [valid/index.ts:177](https://github.com/acanowl/acanowl-framework/blob/e83eea0b29b448bee66564c78f8f3ea4fab8f88b/packages/utils/src/valid/index.ts#L177)
+Defined in: [valid/index.ts:115](https://github.com/acanowl/acanowl-framework/blob/56fbec47a32608dccbd714bce431df6d253fa988/packages/utils/src/valid/index.ts#L115)
 
 是否定义(不为null, undefined)
 
@@ -30,13 +30,39 @@ true | false
 
 ## Example
 
-```ts
-isDefined(1)
-outPut => true
+```更多示例```
+### isDefined regExp, 返回 true
 
-isDefined(null)
-outPut => false
+```typescript
+const regExp = /regExp/
+console.log(isDefined(regExp))
 
-isDefined(undefined)
-outPut => false
+/* output => true */
+```
+
+### isDefined string, 返回 true
+
+```typescript
+const string = 'string'
+console.log(isDefined(string))
+
+/* output => true */
+```
+
+### isDefined nullValue, 返回 false
+
+```typescript
+const nullValue = null
+console.log(isDefined(nullValue))
+
+/* output => false */
+```
+
+### isDefined undefinedValue, 返回 false
+
+```typescript
+const undefinedValue = undefined
+console.log(isDefined(undefinedValue))
+
+/* output => false */
 ```

@@ -6,7 +6,7 @@
 
 > **isRegExp**(`value`): `value is RegExp`
 
-Defined in: [valid/index.ts:158](https://github.com/acanowl/acanowl-framework/blob/e83eea0b29b448bee66564c78f8f3ea4fab8f88b/packages/utils/src/valid/index.ts#L158)
+Defined in: [valid/index.ts:104](https://github.com/acanowl/acanowl-framework/blob/56fbec47a32608dccbd714bce431df6d253fa988/packages/utils/src/valid/index.ts#L104)
 
 是否是正则表达式
 
@@ -24,10 +24,21 @@ true | false
 
 ## Example
 
-```ts
-isRegExp(/test/)
-outPut => true
+```更多示例```
+### isRegExp regExp, 返回 true
 
-isRegExp({})
-outPut => false
+```typescript
+const regExp = /regExp/
+console.log(isRegExp(regExp))
+
+/* output => true */
+```
+
+### isRegExp string, 返回 false
+
+```typescript
+const string = 'string'
+console.log(isRegExp(string))
+
+/* output => false */
 ```

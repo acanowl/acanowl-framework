@@ -6,7 +6,7 @@
 
 > **isNumber**(`value`): `value is number`
 
-Defined in: [valid/index.ts:90](https://github.com/acanowl/acanowl-framework/blob/e83eea0b29b448bee66564c78f8f3ea4fab8f88b/packages/utils/src/valid/index.ts#L90)
+Defined in: [valid/index.ts:59](https://github.com/acanowl/acanowl-framework/blob/56fbec47a32608dccbd714bce431df6d253fa988/packages/utils/src/valid/index.ts#L59)
 
 是否是数字
 
@@ -24,10 +24,21 @@ true | false
 
 ## Example
 
-```ts
-isNumber(1)
-outPut => true
+```更多示例```
+### isNumber number, 返回 true
 
-isNumber('1')
-outPut => false
+```typescript
+const number = 1
+console.log(isNumber(number))
+
+/* output => true */
+```
+
+### isNumber string, 返回 false
+
+```typescript
+const string = 'string'
+console.log(isNumber(string))
+
+/* output => false */
 ```

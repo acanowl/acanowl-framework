@@ -6,7 +6,7 @@
 
 > **isBoolean**(`value`): `value is boolean`
 
-Defined in: [valid/index.ts:106](https://github.com/acanowl/acanowl-framework/blob/e83eea0b29b448bee66564c78f8f3ea4fab8f88b/packages/utils/src/valid/index.ts#L106)
+Defined in: [valid/index.ts:70](https://github.com/acanowl/acanowl-framework/blob/56fbec47a32608dccbd714bce431df6d253fa988/packages/utils/src/valid/index.ts#L70)
 
 是否是布尔值
 
@@ -24,10 +24,21 @@ true | false
 
 ## Example
 
-```ts
-isBoolean(true)
-outPut => true
+```更多示例```
+### isBoolean boolean, 返回 true
 
-isBoolean(1)
-outPut => false
+```typescript
+const boolean = true
+console.log(isBoolean(boolean))
+
+/* output => true */
+```
+
+### isBoolean string, 返回 false
+
+```typescript
+const string = 'string'
+console.log(isBoolean(string))
+
+/* output => false */
 ```

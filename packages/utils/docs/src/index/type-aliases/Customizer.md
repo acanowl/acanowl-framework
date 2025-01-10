@@ -6,7 +6,7 @@
 
 > **Customizer**\<`T`\>: (`targetValue`, `sourceValue`) => `T`
 
-Defined in: [object/index.ts:51](https://github.com/acanowl/acanowl-framework/blob/e83eea0b29b448bee66564c78f8f3ea4fab8f88b/packages/utils/src/object/index.ts#L51)
+Defined in: [object/index.ts:48](https://github.com/acanowl/acanowl-framework/blob/56fbec47a32608dccbd714bce431df6d253fa988/packages/utils/src/object/index.ts#L48)
 
 ## Type Parameters
 

@@ -6,7 +6,7 @@
 
 > **isDate**(`value`): `value is Date`
 
-Defined in: [valid/index.ts:142](https://github.com/acanowl/acanowl-framework/blob/e83eea0b29b448bee66564c78f8f3ea4fab8f88b/packages/utils/src/valid/index.ts#L142)
+Defined in: [valid/index.ts:93](https://github.com/acanowl/acanowl-framework/blob/56fbec47a32608dccbd714bce431df6d253fa988/packages/utils/src/valid/index.ts#L93)
 
 是否是日期对象
 
@@ -24,10 +24,21 @@ true | false
 
 ## Example
 
-```ts
-isDate(new Date())
-outPut => true
+```更多示例```
+### isDate date, 返回 true
 
-isDate({})
-outPut => false
+```typescript
+const date = new Date()
+console.log(isDate(date))
+
+/* output => true */
+```
+
+### isDate string, 返回 false
+
+```typescript
+const string = 'string'
+console.log(isDate(string))
+
+/* output => false */
 ```

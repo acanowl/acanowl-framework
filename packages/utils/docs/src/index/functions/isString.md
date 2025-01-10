@@ -6,7 +6,7 @@
 
 > **isString**(`value`): `value is string`
 
-Defined in: [valid/index.ts:74](https://github.com/acanowl/acanowl-framework/blob/e83eea0b29b448bee66564c78f8f3ea4fab8f88b/packages/utils/src/valid/index.ts#L74)
+Defined in: [valid/index.ts:48](https://github.com/acanowl/acanowl-framework/blob/56fbec47a32608dccbd714bce431df6d253fa988/packages/utils/src/valid/index.ts#L48)
 
 是否是字符串
 
@@ -24,10 +24,21 @@ true | false
 
 ## Example
 
-```ts
-isString('string')
-outPut => true
+```更多示例```
+### isString string, 返回 true
 
-isString(1)
-outPut => false
+```typescript
+const string = 'string'
+console.log(isString(string))
+
+/* output => true */
+```
+
+### isString number, 返回 false
+
+```typescript
+const number = 1
+console.log(isString(number))
+
+/* output => false */
 ```

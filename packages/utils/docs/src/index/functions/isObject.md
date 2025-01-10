@@ -6,7 +6,7 @@
 
 > **isObject**(`value`): value is PlainObject \| unknown\[\]
 
-Defined in: [valid/index.ts:57](https://github.com/acanowl/acanowl-framework/blob/e83eea0b29b448bee66564c78f8f3ea4fab8f88b/packages/utils/src/valid/index.ts#L57)
+Defined in: [valid/index.ts:36](https://github.com/acanowl/acanowl-framework/blob/56fbec47a32608dccbd714bce431df6d253fa988/packages/utils/src/valid/index.ts#L36)
 
 是否是对象(不包括null, Date, RegExp)
 
@@ -24,16 +24,48 @@ true | false
 
 ## Example
 
-```ts
-isObject({})
-outPut => true
+```更多示例```
+### isObject emptyObject, 返回 true
 
-isObject([])
-outPut => true
+```typescript
+const emptyObject = {}
+console.log(isObject(emptyObject))
 
-isObject(null)
-outPut => false
+/* output => true */
+```
 
-isObject(new Date())
-outPut => false
+### isObject validObject, 返回 true
+
+```typescript
+const validObject = { a: 1 }
+console.log(isObject(validObject))
+
+/* output => true */
+```
+
+### isObject validArray, 返回 true
+
+```typescript
+const validArray = [1]
+console.log(isObject(validArray))
+
+/* output => true */
+```
+
+### isObject date, 返回 false
+
+```typescript
+const date = new Date()
+console.log(isObject(date))
+
+/* output => false */
+```
+
+### isObject nullValue, 返回 false
+
+```typescript
+const nullValue = null
+console.log(isObject(nullValue))
+
+/* output => false */
 ```

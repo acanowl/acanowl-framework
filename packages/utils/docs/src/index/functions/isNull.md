@@ -6,7 +6,7 @@
 
 > **isNull**(`value`): `value is null`
 
-Defined in: [valid/index.ts:193](https://github.com/acanowl/acanowl-framework/blob/e83eea0b29b448bee66564c78f8f3ea4fab8f88b/packages/utils/src/valid/index.ts#L193)
+Defined in: [valid/index.ts:126](https://github.com/acanowl/acanowl-framework/blob/56fbec47a32608dccbd714bce431df6d253fa988/packages/utils/src/valid/index.ts#L126)
 
 是否是null
 
@@ -24,10 +24,21 @@ true | false
 
 ## Example
 
-```ts
-isNull(null)
-outPut => true
+```更多示例```
+### isNull nullValue, 返回 true
 
-isNull(undefined)
-outPut => false
+```typescript
+const nullValue = null
+console.log(isNull(nullValue))
+
+/* output => true */
+```
+
+### isNull undefinedValue, 返回 false
+
+```typescript
+const undefinedValue = undefined
+console.log(isNull(undefinedValue))
+
+/* output => false */
 ```
