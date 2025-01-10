@@ -7,11 +7,8 @@ import { isArray, isDefined, isPlainObject } from '../valid'
  * @param {T} obj 要克隆的对象
  * @returns {T} 克隆后的对象
  * @example
- * ```ts
- * const object = { 'a': { 'b': 1 } }
- * console.log(deepClone(object))
- * output => { 'a': { 'b': 1 } }
- * ```
+ * ```更多示例```
+ * {@include ../../docs/test/object/deepClone.md}
  */
 export const deepClone = <T>(obj: T): T => {
   // 如果 obj 不是对象或数组，直接返回
@@ -58,29 +55,8 @@ export type Customizer<T = unknown> = (targetValue: T, sourceValue: T) => T
  * @param {Customizer} customizer 数组合并自定义函数
  * @returns {T & U} 合并后的对象
  * @example
- * ```ts
- * const object = { 'a': { 'b': [1, 2] } }
- * const object2 = { 'a': { 'a': 1, b: [2, 3], 'c': 2 } }
- * ```
- * @example
- * ```ts
- * console.log(deepMerge(object, object2))
- * output => { 'a': { 'a': 1, 'b': [2, 3], 'c': 2 } }
- * ```
- * @example
- * ```ts
- * const customizer = (target, source) => target.concat(source)
- * console.log(deepMerge(object, object2, customizer))
- * output => { 'a': { 'a': 1, 'b': [1, 2, 2, 3], 'c': 2 } }
- * ```
- * @example
- * ```ts
- * const customizer = (target, source) => {
- *   return [...new Set([...target, ...source])]
- * }
- * console.log(deepMerge(object, object2, customizer))
- * output => { 'a': { 'a': 1, 'b': [1, 2, 3], 'c': 2 } }
- * ```
+ * ```更多示例```
+ * {@include ../../docs/test/object/deepMerge.md}
  */
 export const deepMerge = <T, U>(target: T, source: U, customizer?: Customizer): T & U => {
   // 如果 target 或 source 不是对象或数组，直接返回

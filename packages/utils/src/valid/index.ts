@@ -8,13 +8,8 @@ const getObjectType = (obj: unknown) => Object.prototype.toString.call(obj).slic
  * @param {unknown} value
  * @returns {boolean} true | false
  * @example
- * ```ts
- * isPlainObject({})
- * outPut => true
- *
- * isPlainObject([])
- * outPut => false
- * ```
+ * ```更多示例```
+ * {@include ../../docs/test/valid/isPlainObject.md}
  */
 export const isPlainObject = (value: unknown): value is PlainObject => getObjectType(value) === 'Object'
 
@@ -24,13 +19,8 @@ export const isPlainObject = (value: unknown): value is PlainObject => getObject
  * @param {unknown} value
  * @returns {boolean} true | false
  * @example
- * ```ts
- * isArray([])
- * outPut => true
- *
- * isArray({})
- * outPut => false
- * ```
+ * ```更多示例```
+ * {@include ../../docs/test/valid/isArray.md}
  */
 export const isArray = (value: unknown): value is Array<unknown> => getObjectType(value) === 'Array'
 
@@ -40,19 +30,8 @@ export const isArray = (value: unknown): value is Array<unknown> => getObjectTyp
  * @param {unknown} value
  * @returns {boolean} true | false
  * @example
- * ```ts
- * isObject({})
- * outPut => true
- *
- * isObject([])
- * outPut => true
- *
- * isObject(null)
- * outPut => false
- *
- * isObject(new Date())
- * outPut => false
- * ```
+ * ```更多示例```
+ * {@include ../../docs/test/valid/isObject.md}
  */
 export const isObject = (value: unknown): value is PlainObject | Array<unknown> =>
   isPlainObject(value) || isArray(value)
@@ -63,13 +42,8 @@ export const isObject = (value: unknown): value is PlainObject | Array<unknown> 
  * @param {unknown} value
  * @returns {boolean} true | false
  * @example
- * ```ts
- * isString('string')
- * outPut => true
- *
- * isString(1)
- * outPut => false
- * ```
+ * ```更多示例```
+ * {@include ../../docs/test/valid/isString.md}
  */
 export const isString = (value: unknown): value is string => getObjectType(value) === 'String'
 
@@ -79,13 +53,8 @@ export const isString = (value: unknown): value is string => getObjectType(value
  * @param {unknown} value
  * @returns {boolean} true | false
  * @example
- * ```ts
- * isNumber(1)
- * outPut => true
- *
- * isNumber('1')
- * outPut => false
- * ```
+ * ```更多示例```
+ * {@include ../../docs/test/valid/isNumber.md}
  */
 export const isNumber = (value: unknown): value is number => getObjectType(value) === 'Number'
 
@@ -95,13 +64,8 @@ export const isNumber = (value: unknown): value is number => getObjectType(value
  * @param {unknown} value
  * @returns {boolean} true | false
  * @example
- * ```ts
- * isBoolean(true)
- * outPut => true
- *
- * isBoolean(1)
- * outPut => false
- * ```
+ * ```更多示例```
+ * {@include ../../docs/test/valid/isBoolean.md}
  */
 export const isBoolean = (value: unknown): value is boolean => getObjectType(value) === 'Boolean'
 
@@ -111,16 +75,8 @@ export const isBoolean = (value: unknown): value is boolean => getObjectType(val
  * @param {unknown} value
  * @returns {boolean} true | false
  * @example
- * ```ts
- * isFunction(() => {})
- * outPut => true
- *
- * isFunction(async () => {})
- * outPut => true
- *
- * isFunction(1)
- * outPut => false
- * ```
+ * ```更多示例```
+ * {@include ../../docs/test/valid/isFunction.md}
  */
 export const isFunction = <T = undefined>(value: unknown): value is GenFn<T> =>
   ['AsyncFunction', 'Function'].indexOf(getObjectType(value)) > -1 || typeof value === 'function'
@@ -131,13 +87,8 @@ export const isFunction = <T = undefined>(value: unknown): value is GenFn<T> =>
  * @param {unknown} value
  * @returns {boolean} true | false
  * @example
- * ```ts
- * isDate(new Date())
- * outPut => true
- *
- * isDate({})
- * outPut => false
- * ```
+ * ```更多示例```
+ * {@include ../../docs/test/valid/isDate.md}
  */
 export const isDate = (value: unknown): value is Date => getObjectType(value) === 'Date'
 
@@ -147,13 +98,8 @@ export const isDate = (value: unknown): value is Date => getObjectType(value) ==
  * @param {unknown} value
  * @returns {boolean} true | false
  * @example
- * ```ts
- * isRegExp(/test/)
- * outPut => true
- *
- * isRegExp({})
- * outPut => false
- * ```
+ * ```更多示例```
+ * {@include ../../docs/test/valid/isRegExp.md}
  */
 export const isRegExp = (value: unknown): value is RegExp => getObjectType(value) === 'RegExp'
 
@@ -163,16 +109,8 @@ export const isRegExp = (value: unknown): value is RegExp => getObjectType(value
  * @param {unknown} value
  * @returns {boolean} true | false
  * @example
- * ```ts
- * isDefined(1)
- * outPut => true
- *
- * isDefined(null)
- * outPut => false
- *
- * isDefined(undefined)
- * outPut => false
- * ```
+ * ```更多示例```
+ * {@include ../../docs/test/valid/isDefined.md}
  */
 export const isDefined = <T>(value: T | undefined | null): value is T => value !== null && value !== undefined
 
@@ -182,12 +120,7 @@ export const isDefined = <T>(value: T | undefined | null): value is T => value !
  * @param {unknown} value
  * @returns {boolean} true | false
  * @example
- * ```ts
- * isNull(null)
- * outPut => true
- *
- * isNull(undefined)
- * outPut => false
- * ```
+ * ```更多示例```
+ * {@include ../../docs/test/valid/isNull.md}
  */
 export const isNull = (value: unknown): value is null => value === null
