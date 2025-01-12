@@ -55,7 +55,11 @@ const customInstruction = async (instruction: string, options: PlainObject<strin
     }
     // 查看
     if (list) {
-      console.log(useCliTable(instructionJson))
+      if (instructionJson && Object.keys(instructionJson).length) {
+        console.log(useCliTable(instructionJson))
+      } else {
+        console.log('暂无自定义指令')
+      }
       return
     }
     // 新增
