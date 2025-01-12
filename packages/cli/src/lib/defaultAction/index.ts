@@ -1,5 +1,5 @@
 import pc from 'picocolors'
-import { isString } from '@/util/valid'
+import { isString } from '@acanowl/utils'
 import { useCache, useExecCommand } from '@/hooks'
 import { CACHE_INSTRUCT_KEY, CLI_KEY } from '@/config'
 

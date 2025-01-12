@@ -1,6 +1,6 @@
 import pc from 'picocolors'
 import { Choice } from 'prompts'
-import { isArray, isString } from '@/util/valid'
+import { isArray, isString } from '@acanowl/utils'
 import { useCache, useCheckboxPrompts, useConfirmPrompts, useInputPrompts, useCliTable } from '@/hooks'
 import type { PlainObject } from '@acanowl/types'
 import { CACHE_INSTRUCT_KEY, CLI_KEY } from '@/config'

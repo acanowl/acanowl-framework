@@ -1,6 +1,6 @@
 import { useExecCommand, useInputPrompts } from '@/hooks'
 import type { PlainObject } from '@acanowl/types'
-import { isBoolean } from '@/util/valid'
+import { isBoolean } from '@acanowl/utils'
 
 const checkNpmVersions = async (nodeName: string[] = [], options: PlainObject) => {
   const { list = false, registry = false } = options

@@ -1,5 +1,5 @@
 import type { PlainObject } from '@acanowl/types'
-import { isArray, isPlainObject } from '@/util/valid'
+import { isArray, isPlainObject } from '@acanowl/utils'
 import Table from 'cli-table'
 
 export const useCliTable = (items: PlainObject | unknown[] | undefined) => {
