@@ -1,5 +1,5 @@
 import pc from 'picocolors'
-import { isString } from '@acanowl/utils'
+import { errorCatch, isString } from '@acanowl/utils'
 import { useCache, useExecCommand } from '@/hooks'
 import { CACHE_INSTRUCT_KEY, CLI_KEY } from '@/config'
 
@@ -16,7 +16,7 @@ const defaultAction = async (instructKey: string) => {
       }
     }
   } catch (error) {
-    console.log('出错：', error)
+    console.log('出错：', errorCatch(error))
   }
 }
 

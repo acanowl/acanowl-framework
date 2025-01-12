@@ -8,7 +8,8 @@ const [CLI_NAME, CLI_VERSIONS] = [name, version]
 const cli = cac(CLI_NAME)
 
 cli
-  .command('ver [...nodeName]', '检查依赖版本')
+  .command('version [...nodeName]', '检查依赖版本')
+  .alias('ver')
   .option('-l, --list', '所有版本')
   .option('-r, --registry [path]', 'npm源')
   .action(checkNpmVersions)
