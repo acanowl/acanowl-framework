@@ -7,22 +7,42 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "update": "pnpm -r -F=./packages/* update",
+    "prepare": "husky install",
     "prepare:build": "pnpm -r -F=./packages/* prepublishOnly",
     "dev": "turbo dev",
-    "build": "turbo build"
+    "build": "turbo build",
+    "commit": "cz"
   },
   "keywords": [],
   "author": "Eddy Hsu",
   "license": "MIT",
   "devDependencies": {
-    "@eslint/js": "^9.1.1",
-    "@types/node": "^20.12.5",
-    "eslint": "^8.57.0",
-    "globals": "^15.0.0",
+    "@changesets/cli": "^2.27.11",
+    "@commitlint/cli": "^19.6.1",
+    "@commitlint/config-conventional": "^19.6.0",
+    "@eslint/js": "^9.18.0",
+    "@types/node": "^20.17.12",
+    "commitizen": "^4.3.1",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^9.18.0",
+    "globals": "^15.14.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.3.0",
+    "stylelint": "^16.13.0",
     "turbo": "^2.3.3",
     "typescript": "5.4.4",
-    "typescript-eslint": "^7.7.1",
-    "vite": "^5.2.8",
-    "vite-plugin-dts": "^3.3.1"
+    "typescript-eslint": "^8.19.1",
+    "vite": "^5.4.11",
+    "vite-plugin-dts": "^3.9.1"
+  },
+  "lint-staged": {
+    "./**/*.{js,ts,vue,tsx,jsx,css,sass,json}": [
+      "eslint --fix"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
   }
 }
