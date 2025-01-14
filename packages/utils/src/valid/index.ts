@@ -59,6 +59,28 @@ export const isString = (value: unknown): value is string => getObjectType(value
 export const isNumber = (value: unknown): value is number => getObjectType(value) === 'Number'
 
 /**
+ * 是否是有效数字
+ * @group Valid
+ * @param {unknown} value
+ * @returns {boolean} true | false
+ * @example
+ * ```更多示例```
+ * {@include ../../docs/test/valid/isValidNumber.md}
+ */
+export const isValidNumber = (value: unknown): value is number => isNumber(value) && !isNaN(value)
+
+/**
+ * 是否是非0数字
+ * @group Valid
+ * @param {unknown} value
+ * @returns {boolean} true | false
+ * @example
+ * ```更多示例```
+ * {@include ../../docs/test/valid/isNonZeroNumber.md}
+ */
+export const isNonZeroNumber = (value: unknown): value is number => isValidNumber(value) && value === 0
+
+/**
  * 是否是布尔值
  * @group Valid
  * @param {unknown} value
@@ -91,6 +113,17 @@ export const isFunction = <T = undefined>(value: unknown): value is GenFn<T> =>
  * {@include ../../docs/test/valid/isDate.md}
  */
 export const isDate = (value: unknown): value is Date => getObjectType(value) === 'Date'
+
+/**
+ * 是否是有效日期对象
+ * @group Valid
+ * @param {unknown} value
+ * @returns {boolean} true | false
+ * @example
+ * ```更多示例```
+ * {@include ../../docs/test/valid/isValidDate.md}
+ */
+export const isValidDate = (value: unknown): value is Date => isDate(value) && !isNaN(value.getTime())
 
 /**
  * 是否是正则表达式
