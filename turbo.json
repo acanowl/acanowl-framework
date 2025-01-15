@@ -7,6 +7,9 @@
     "dev": {
       "persistent": true,
       "cache": false
+    },
+    "docs:dev": {
+      "dependsOn": ["^docs:dev"]
     }
   }
 }

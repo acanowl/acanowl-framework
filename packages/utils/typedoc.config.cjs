@@ -1,8 +1,8 @@
 /** @type {import('typedoc').TypeDocOptions & import('typedoc-plugin-markdown').PluginOptions} */
 module.exports = {
   entryPoints: ['./src/index.ts'],
-  out: 'docs/src',
-  plugin: ['typedoc-plugin-markdown', './docs/.vitepress/theme/typedoc-theme.mjs'],
+  out: '../../docs/src',
+  plugin: ['typedoc-plugin-markdown', '../../docs/.vitepress/theme/typedoc-theme.mjs'],
   theme: 'themeExpand',
   hideBreadcrumbs: true,
   parametersFormat: 'table',
