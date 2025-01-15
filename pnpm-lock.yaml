@@ -7,6 +7,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      '@babel/parser':
+        specifier: ^7.26.3
+        version: 7.26.3
     devDependencies:
       '@changesets/cli':
         specifier: ^2.27.11

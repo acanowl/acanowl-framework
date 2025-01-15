@@ -12,7 +12,8 @@
     "dev": "turbo dev",
     "build": "turbo build",
     "commit": "cz",
-    "changeset": "changeset && changeset version && git add . && cz"
+    "changeset": "changeset && changeset version && git add . && cz",
+    "test:docs": "node ./generate.mjs"
   },
   "keywords": [],
   "author": "Eddy Hsu",
@@ -62,5 +63,8 @@
       "eslint --fix",
       "prettier --parser=typescript --write"
     ]
+  },
+  "dependencies": {
+    "@babel/parser": "^7.26.3"
   }
 }
