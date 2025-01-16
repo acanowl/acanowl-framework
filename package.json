@@ -4,7 +4,6 @@
   "description": "CAN, one framework for development",
   "private": true,
   "packageManager": "pnpm@9.15.0",
-  "type": "module",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "prepare": "husky install",
@@ -15,8 +14,8 @@
     "commit": "cz",
     "changeset": "changeset && changeset version && git add . && cz",
     "test:docs": "node ./generate.mjs",
-    "docs:dev": "concurrently \"turbo docs:dev\" \"vitepress dev docs\"",
-    "docs:build": "concurrently \"turbo docs:dev\" \"vitepress build docs\""
+    "test": "vitest",
+    "test:ui": "vitest --ui"
   },
   "keywords": [],
   "author": "Eddy Hsu",
@@ -39,10 +38,8 @@
     "typescript-eslint": "^8.19.1",
     "vite": "^5.4.11",
     "vite-plugin-dts": "^3.9.1",
-    "vitepress": "1.1.0",
-    "typedoc": "0.27.6",
-    "typedoc-plugin-markdown": "4.4.1",
-    "concurrently": "^8.2.2"
+    "@vitest/ui": "^1.6.0",
+    "vitest": "^1.6.0"
   },
   "config": {
     "commitizen": {

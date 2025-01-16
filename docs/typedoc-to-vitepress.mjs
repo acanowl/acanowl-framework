@@ -1,0 +1,58 @@
+import { MarkdownTheme, MarkdownRendererEvent, MarkdownPageEvent } from 'typedoc-plugin-markdown'
+import fs from 'fs'
+
+/**
+ * @param {import('typedoc-plugin-markdown').MarkdownApplication} app
+ */
+
+const handleNavigation = (navigation = []) => {
+  console.log(navigation, 'app.renderer')
+  // 处理导航栏
+  const newNavigationData = navigation.map((item) => {
+    const newItem = {
+      text: item.title
+    }
+    if (item?.path) {
+      newItem.link = `/${item.path}`
+    }
+    if (item?.children) {
+      newItem.items = handleNavigation(item?.children)
+      newItem.collapsed = true
+    }
+    return newItem
+  })
+  return newNavigationData
+}
+
+export function load(app) {
+  app.renderer.markdownHooks.on('content.begin', (model) => {
+    const nameInfo = model.page.model.signatures?.[0]?.comment?.blockTags?.find((item) => item.tag === '@name')
+    const finalInfo = model.page.model.signatures?.[0]?.comment?.blockTags?.filter((item) => item.tag !== '@name')
+
+    if (finalInfo) model.page.model.signatures[0].comment.blockTags = finalInfo
+    const name = nameInfo?.content?.[0]?.text
+    return name ? `### ${name}` : ''
+  })
+
+  app.renderer.on(MarkdownPageEvent.END, (page) => {
+    page.contents = page.contents.replace(/## Default/g, '## 默认值:')
+    page.contents = page.contents.replace(/## Usage/g, '## 用法:')
+    page.contents = page.contents.replace(/## Deprecated/g, '## 已弃用:')
+  })
+
+  app.renderer.on(MarkdownRendererEvent.BEGIN, () => {
+    // 生成侧边导航栏
+    app.renderer.postRenderAsyncJobs.push(async (event) => {
+      const navigation = handleNavigation(event.navigation)
+      // fs.writeFileSync('./navigation.json', JSON.stringify(navigation))
+    })
+  })
+
+  app.renderer.defineTheme('themeExpand', MyMarkdownTheme)
+}
+
+class MyMarkdownTheme extends MarkdownTheme {
+  constructor(renderer) {
+    super(renderer)
+  }
+}

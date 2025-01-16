@@ -1,5 +1,12 @@
 {
   "compilerOptions": {
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "declarationDir": "dist/types",
+    "sourceMap": true,
+    "outDir": "dist",
+    "rootDir": "../",
+
     "target": "ES2020",
     "useDefineForClassFields": true,
     "module": "ESNext",
@@ -20,6 +27,7 @@
     // "noUnusedParameters": true,
     // "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"],
-  "exclude": ["test", "docs"]
+
+  "include": ["../packages/utils/src/index.ts", "../packages/can/src/index.ts"],
+  "exclude": ["node_modules", "dist"]
 }

@@ -1,0 +1,17 @@
+{
+  "name": "@acanowl/docs",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "docs": "typedoc",
+    "docs:dev": "typedoc --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "typedoc": "^0.27.6",
+    "typedoc-plugin-markdown": "^4.4.1",
+    "vitepress": "^1.5.0"
+  }
+}
