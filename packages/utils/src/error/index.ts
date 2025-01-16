@@ -1,4 +1,4 @@
-import { isPlainObject } from '@/valid'
+import { isPlainObject } from '../valid'
 
 export const errorCatch = <T>(error: unknown): T => {
   if (error instanceof Error) {

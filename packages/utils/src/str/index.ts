@@ -1,4 +1,4 @@
-import { isDefined, isNonZeroNumber } from '@/valid'
+import { isDefined, isNonZeroNumber } from '../valid'
 
 /**
  * 获取小数位长度
@@ -8,7 +8,7 @@ import { isDefined, isNonZeroNumber } from '@/valid'
  * @returns {number}
  * @example
  * ```更多示例```
- * {@include ../../docs/test/str/getDecimalLength.md}
+ * {@include ../../docs/test/utils/str/getDecimalLength.md}
  */
 export const getDecimalLength = (str: unknown, n: unknown): number => {
   if (!isDefined(str)) return 0

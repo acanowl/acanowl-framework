@@ -1,4 +1,4 @@
-import { isString, isValidDate, isValidNumber } from '@/valid'
+import { isString, isValidDate, isValidNumber } from '../valid'
 
 /**
  * 时间格式化
@@ -8,7 +8,7 @@ import { isString, isValidDate, isValidNumber } from '@/valid'
  * @returns {string}
  * @example
  * ```更多示例```
- * {@include ../../docs/test/date/dateFormat.md}
+ * {@include ../../docs/test/utils/date/dateFormat.md}
  */
 export const dateFormat = (date: Date, fmt: string = 'yyyy-MM-dd'): string => {
   // 非有效时间对象 返回''
@@ -48,7 +48,7 @@ export const dateFormat = (date: Date, fmt: string = 'yyyy-MM-dd'): string => {
  * @returns 'yyyy/MM/dd'
  * @example
  * ```更多示例```
- * {@include ../../docs/test/date/formatDateSeparator.md}
+ * {@include ../../docs/test/utils/date/formatDateSeparator.md}
  */
 export const formatDateSeparator = (date: string) => date.replace(/-/g, '/')
 
@@ -59,7 +59,7 @@ export const formatDateSeparator = (date: string) => date.replace(/-/g, '/')
  * @returns {Date | null}
  * @example
  * ```更多示例```
- * {@include ../../docs/test/date/parseDateStringWithTime.md}
+ * {@include ../../docs/test/utils/date/parseDateStringWithTime.md}
  */
 export const parseDateStringWithTime = (dateString: string = ''): Date | null => {
   const dateRegex = /(\d{4})(\d{2})(\d{2})(?:(\d{2})(\d{2})(\d{2}))?/
@@ -92,7 +92,7 @@ type UniversalTimeType = Date | number | string | null
  * @returns {string}
  * @example
  * ```更多示例```
- * {@include ../../docs/test/date/formatDate.md}
+ * {@include ../../docs/test/utils/date/formatDate.md}
  */
 export const formatDate = (value: UniversalTimeType, fmt: string = 'yyyy-MM-dd', placeholder: string = ''): string => {
   if (!value) return placeholder
