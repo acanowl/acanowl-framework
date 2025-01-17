@@ -1,23 +1,22 @@
 import { MarkdownTheme, MarkdownRendererEvent, MarkdownPageEvent } from 'typedoc-plugin-markdown'
-import fs from 'fs'
+import { writeFileSync } from 'fs'
 
 /**
  * @param {import('typedoc-plugin-markdown').MarkdownApplication} app
  */
 
 const handleNavigation = (navigation = []) => {
-  console.log(navigation, 'app.renderer')
   // 处理导航栏
   const newNavigationData = navigation.map((item) => {
     const newItem = {
       text: item.title
     }
     if (item?.path) {
-      newItem.link = `/${item.path}`
+      newItem.link = `docs/${item.path}`
     }
     if (item?.children) {
       newItem.items = handleNavigation(item?.children)
-      newItem.collapsed = true
+      // newItem.collapsed = false // false展开 true收起
     }
     return newItem
   })
@@ -43,11 +42,13 @@ export function load(app) {
   app.renderer.on(MarkdownRendererEvent.BEGIN, () => {
     // 生成侧边导航栏
     app.renderer.postRenderAsyncJobs.push(async (event) => {
-      const navigation = handleNavigation(event.navigation)
-      // fs.writeFileSync('./navigation.json', JSON.stringify(navigation))
+      const navigation = event.navigation.reduce(
+        (obj, item) => ({ ...obj, ['docs/' + item.title]: handleNavigation(item.children) }),
+        {}
+      )
+      writeFileSync('./navigation.json', JSON.stringify(navigation))
     })
   })
-
   app.renderer.defineTheme('themeExpand', MyMarkdownTheme)
 }
 

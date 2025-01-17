@@ -3,13 +3,15 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "docs": "typedoc",
-    "docs:dev": "typedoc --watch"
+    "docs:dev": "concurrently \"typedoc --watch\" \"vitepress dev\" ",
+    "docs:build": "vitepress build",
+    "docs:preview": "vitepress preview"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "concurrently": "^9.1.2",
     "typedoc": "^0.27.6",
     "typedoc-plugin-markdown": "^4.4.1",
     "vitepress": "^1.5.0"

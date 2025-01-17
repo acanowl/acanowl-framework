@@ -1,7 +1,7 @@
 /** @type {Partial<import('typedoc').TypeDocOptions> & import('typedoc-plugin-markdown').PluginOptions} */
 
 module.exports = {
-  entryPoints: ['../packages/utils/src/index.ts', '../packages/can/src/index.ts'],
+  entryPoints: ['../packages/utils/src/index.ts', '../packages/types/src/index.ts'],
   plugin: ['typedoc-plugin-markdown', './typedoc-to-vitepress.mjs'],
   out: 'docs',
   navigation: {

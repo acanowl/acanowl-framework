@@ -8,8 +8,12 @@ hero:
   tagline: Σ(っ °Д °;)っ
   actions:
     - theme: brand
-      text: 快速指南
-      link: /src/README
+      text: 'utils 快速指南'
+      link: docs/utils/src/README.md
+
+    - theme: brand
+      text: 'types 快速指南'
+      link: docs/types/src/README.md
 
     - theme: alt
       text: Github

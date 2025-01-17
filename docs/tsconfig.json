@@ -28,6 +28,6 @@
     // "noFallthroughCasesInSwitch": true
   },
 
-  "include": ["../packages/utils/src/index.ts", "../packages/can/src/index.ts"],
+  "include": ["../packages/utils/src/index.ts", "../packages/types/src/index.ts"],
   "exclude": ["node_modules", "dist"]
 }
