@@ -1,5 +1,3 @@
-### isFunction
-
 #### func
 
 ```typescript
@@ -9,8 +7,6 @@ console.log(isFunction(func))
 /* output => true */
 ```
 
-### isFunction
-
 #### asyncfunc
 
 ```typescript
@@ -19,8 +15,6 @@ console.log(isFunction(asyncfunc))
 
 /* output => true */
 ```
-
-### isFunction
 
 #### nullValue
 

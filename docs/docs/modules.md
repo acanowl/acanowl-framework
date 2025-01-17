@@ -6,5 +6,5 @@
 
 ## Modules
 
-- [can/src](can/src/README.md)
+- [types/src](types/src/README.md)
 - [utils/src](utils/src/README.md)

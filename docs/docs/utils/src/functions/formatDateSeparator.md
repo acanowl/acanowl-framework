@@ -8,7 +8,7 @@
 
 > **formatDateSeparator**(`date`): `string`
 
-Defined in: [utils/src/date/index.ts:53](https://github.com/acanowl/acanowl-framework/blob/7ba94079de1593f6a108902ca9202f39af1164e0/packages/utils/src/date/index.ts#L53)
+Defined in: [utils/src/date/index.ts:53](https://github.com/acanowl/acanowl-framework/blob/b5107a43a84c047f5172f446640c957c87bb9285/packages/utils/src/date/index.ts#L53)
 
 格式化日期分隔符
 

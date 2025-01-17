@@ -1,5 +1,3 @@
-### isDefined
-
 #### regExp
 
 ```typescript
@@ -8,8 +6,6 @@ console.log(isDefined(regExp))
 
 /* output => true */
 ```
-
-### isDefined
 
 #### string
 
@@ -20,8 +16,6 @@ console.log(isDefined(string))
 /* output => true */
 ```
 
-### isDefined
-
 #### nullValue
 
 ```typescript
@@ -30,8 +24,6 @@ console.log(isDefined(nullValue))
 
 /* output => false */
 ```
-
-### isDefined
 
 #### undefinedValue
 

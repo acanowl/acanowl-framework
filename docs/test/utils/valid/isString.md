@@ -1,5 +1,3 @@
-### isString
-
 #### string
 
 ```typescript
@@ -8,8 +6,6 @@ console.log(isString(string))
 
 /* output => true */
 ```
-
-### isString
 
 #### number
 

@@ -8,7 +8,7 @@
 
 > **isObject**(`value`): value is PlainObject \| unknown\[\]
 
-Defined in: [utils/src/valid/index.ts:36](https://github.com/acanowl/acanowl-framework/blob/7ba94079de1593f6a108902ca9202f39af1164e0/packages/utils/src/valid/index.ts#L36)
+Defined in: [utils/src/valid/index.ts:36](https://github.com/acanowl/acanowl-framework/blob/b5107a43a84c047f5172f446640c957c87bb9285/packages/utils/src/valid/index.ts#L36)
 
 是否是对象(不包括null, Date, RegExp)
 
@@ -27,4 +27,47 @@ true | false
 ## Example
 
 ```更多示例```
-{../../docs/test/utils/valid/isObject.md}
+#### emptyObject
+
+```typescript
+const emptyObject = {}
+console.log(isObject(emptyObject))
+
+/* output => true */
+```
+
+#### validObject
+
+```typescript
+const validObject = { a: 1 }
+console.log(isObject(validObject))
+
+/* output => true */
+```
+
+#### validArray
+
+```typescript
+const validArray = [1]
+console.log(isObject(validArray))
+
+/* output => true */
+```
+
+#### date
+
+```typescript
+const date = new Date()
+console.log(isObject(date))
+
+/* output => false */
+```
+
+#### nullValue
+
+```typescript
+const nullValue = null
+console.log(isObject(nullValue))
+
+/* output => false */
+```

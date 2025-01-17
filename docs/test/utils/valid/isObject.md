@@ -1,5 +1,3 @@
-### isObject
-
 #### emptyObject
 
 ```typescript
@@ -8,8 +6,6 @@ console.log(isObject(emptyObject))
 
 /* output => true */
 ```
-
-### isObject
 
 #### validObject
 
@@ -20,8 +16,6 @@ console.log(isObject(validObject))
 /* output => true */
 ```
 
-### isObject
-
 #### validArray
 
 ```typescript
@@ -31,8 +25,6 @@ console.log(isObject(validArray))
 /* output => true */
 ```
 
-### isObject
-
 #### date
 
 ```typescript
@@ -41,8 +33,6 @@ console.log(isObject(date))
 
 /* output => false */
 ```
-
-### isObject
 
 #### nullValue
 

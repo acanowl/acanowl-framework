@@ -1,5 +1,3 @@
-### isDate
-
 #### date
 
 ```typescript
@@ -8,8 +6,6 @@ console.log(isDate(date))
 
 /* output => true */
 ```
-
-### isDate
 
 #### string
 

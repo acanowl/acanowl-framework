@@ -1,5 +1,3 @@
-### isBoolean
-
 #### boolean
 
 ```typescript
@@ -8,8 +6,6 @@ console.log(isBoolean(boolean))
 
 /* output => true */
 ```
-
-### isBoolean
 
 #### string
 

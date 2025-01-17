@@ -1,5 +1,3 @@
-### isArray
-
 #### emptyArray
 
 ```typescript
@@ -9,8 +7,6 @@ console.log(isArray(emptyArray))
 /* output => true */
 ```
 
-### isArray
-
 #### validArray
 
 ```typescript
@@ -19,8 +15,6 @@ console.log(isArray(validArray))
 
 /* output => true */
 ```
-
-### isArray
 
 #### string
 

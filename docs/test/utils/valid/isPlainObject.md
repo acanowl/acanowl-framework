@@ -1,5 +1,3 @@
-### isPlainObject
-
 #### emptyObject
 
 ```typescript
@@ -9,8 +7,6 @@ console.log(isPlainObject(emptyObject))
 /* output => true */
 ```
 
-### isPlainObject
-
 #### validObject
 
 ```typescript
@@ -19,8 +15,6 @@ console.log(isPlainObject(validObject))
 
 /* output => true */
 ```
-
-### isPlainObject
 
 #### validArray
 

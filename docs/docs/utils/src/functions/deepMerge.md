@@ -8,7 +8,7 @@
 
 > **deepMerge**\<`T`, `U`\>(`target`, `source`, `customizer`?): `T` & `U`
 
-Defined in: [utils/src/object/index.ts:61](https://github.com/acanowl/acanowl-framework/blob/7ba94079de1593f6a108902ca9202f39af1164e0/packages/utils/src/object/index.ts#L61)
+Defined in: [utils/src/object/index.ts:61](https://github.com/acanowl/acanowl-framework/blob/b5107a43a84c047f5172f446640c957c87bb9285/packages/utils/src/object/index.ts#L61)
 
 深度合并
 
@@ -47,4 +47,62 @@ Defined in: [utils/src/object/index.ts:61](https://github.com/acanowl/acanowl-fr
 ## Example
 
 ```更多示例```
-{../../docs/test/object/deepMerge.md}
+#### objectValue2
+
+```typescript
+const objectValue = { a: 1, b: { c: 2 }, d: [1, 2, 5], e: 'hello' }
+const objectValue2 = { b: { f: 3 }, d: [1, 4], e: 'world', g: true }
+console.log(deepMerge(objectValue, objectValue2))
+
+/* output => {
+  a: 1,
+  b: { c: 2, f: 3 },
+  d: [1, 4],
+  e: 'world',
+  g: true
+} */
+```
+
+#### objectValue2 concat
+
+```typescript
+const objectValue = { a: 1, b: { c: 2 }, d: [1, 2, 5], e: 'hello' }
+const objectValue2 = { b: { f: 3 }, d: [1, 4], e: 'world', g: true }
+
+const customizer = (targetValue: unknown, sourceValue: unknown) => {
+  if (isArray(targetValue) && isArray(sourceValue)) {
+    return targetValue.concat(sourceValue)
+  }
+}
+console.log(deepMerge(objectValue, objectValue2, customizer))
+
+/* output => {
+  a: 1,
+  b: { c: 2, f: 3 },
+  d: [1, 2, 5, 1, 4],
+  e: 'world',
+  g: true
+} */
+```
+
+#### objectValue2 setCustomizer
+
+```typescript
+const objectValue = { a: 1, b: { c: 2 }, d: [1, 2, 5], e: 'hello' }
+const objectValue2 = { b: { f: 3 }, d: [1, 4], e: 'world', g: true }
+
+const setCustomizer = (targetValue: unknown, sourceValue: unknown) => {
+  if (isArray(targetValue) && isArray(sourceValue)) {
+    return [...new Set([...targetValue, ...sourceValue])]
+  }
+}
+console.log(deepMerge(objectValue, objectValue2, setCustomizer))
+
+/* output => {
+  a: 1,
+  b: { c: 2, f: 3 },
+  d: [1, 2, 5, 4],
+  e: 'world',
+  g: true
+} */
+```

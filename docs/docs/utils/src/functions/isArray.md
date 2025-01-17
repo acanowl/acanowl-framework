@@ -8,7 +8,7 @@
 
 > **isArray**(`value`): `value is unknown[]`
 
-Defined in: [utils/src/valid/index.ts:25](https://github.com/acanowl/acanowl-framework/blob/7ba94079de1593f6a108902ca9202f39af1164e0/packages/utils/src/valid/index.ts#L25)
+Defined in: [utils/src/valid/index.ts:25](https://github.com/acanowl/acanowl-framework/blob/b5107a43a84c047f5172f446640c957c87bb9285/packages/utils/src/valid/index.ts#L25)
 
 是否是数组
 
@@ -27,4 +27,29 @@ true | false
 ## Example
 
 ```更多示例```
-{../../docs/test/utils/valid/isArray.md}
+#### emptyArray
+
+```typescript
+const emptyArray = []
+console.log(isArray(emptyArray))
+
+/* output => true */
+```
+
+#### validArray
+
+```typescript
+const validArray = [1]
+console.log(isArray(validArray))
+
+/* output => true */
+```
+
+#### string
+
+```typescript
+const string = 'string'
+console.log(isArray(string))
+
+/* output => false */
+```

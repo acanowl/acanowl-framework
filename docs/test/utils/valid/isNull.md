@@ -1,5 +1,3 @@
-### isNull
-
 #### nullValue
 
 ```typescript
@@ -8,8 +6,6 @@ console.log(isNull(nullValue))
 
 /* output => true */
 ```
-
-### isNull
 
 #### undefinedValue
 

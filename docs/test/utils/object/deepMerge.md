@@ -1,5 +1,3 @@
-### deepMerge
-
 #### objectValue2
 
 ```typescript
@@ -15,8 +13,6 @@ console.log(deepMerge(objectValue, objectValue2))
   g: true
 } */
 ```
-
-### deepMerge
 
 #### objectValue2 concat
 
@@ -39,8 +35,6 @@ console.log(deepMerge(objectValue, objectValue2, customizer))
   g: true
 } */
 ```
-
-### deepMerge
 
 #### objectValue2 setCustomizer
 

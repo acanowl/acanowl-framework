@@ -99,6 +99,7 @@ const beforeGenerateVitestMarkdown = async (fileName) => {
     for (const key in vitestMarkdownMap) {
       if (Object.prototype.hasOwnProperty.call(vitestMarkdownMap, key)) {
         const outputPath = join(docsFilePath, `${key}.md`)
+        // const markdownContent = `### ${key}\n\n` + vitestMarkdownMap[key]
         await writeFileAsync(outputPath, vitestMarkdownMap[key], 'utf8')
       }
     }
@@ -143,7 +144,6 @@ const generateVitestMarkdown = async (fileContent) => {
           // 输出结果
           markdownMap[moduleName] = markdownMap[moduleName] || ''
 
-          markdownMap[moduleName] += `### ${moduleName}\n\n`
           markdownMap[moduleName] += `#### ${name}\n\n`
 
           const content = []

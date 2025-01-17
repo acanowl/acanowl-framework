@@ -1,5 +1,3 @@
-### deepClone
-
 #### objectValue1
 
 ```typescript
@@ -8,8 +6,6 @@ console.log(deepClone(objectValue))
 
 /* output => { a: 1, b: { c: 2 }, d: [1, 2, 5], e: 'hello' } */
 ```
-
-### deepClone
 
 #### cloneValue1 === objectValue1
 
@@ -20,8 +16,6 @@ console.log(cloneValue === objectValue)
 
 /* output => false */
 ```
-
-### deepClone
 
 #### cloneValue1.b === objectValue1.b
 

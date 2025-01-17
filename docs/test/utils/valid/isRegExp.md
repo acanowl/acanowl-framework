@@ -1,5 +1,3 @@
-### isRegExp
-
 #### regExp
 
 ```typescript
@@ -8,8 +6,6 @@ console.log(isRegExp(regExp))
 
 /* output => true */
 ```
-
-### isRegExp
 
 #### string
 

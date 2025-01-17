@@ -8,7 +8,7 @@ import { isArray, isDefined, isPlainObject } from '../valid'
  * @returns {T} 克隆后的对象
  * @example
  * ```更多示例```
- * {../../docs/test/object/deepClone.md}
+ * {@include ../../../../docs/test/utils/object/deepClone.md}
  */
 export const deepClone = <T>(obj: T): T => {
   // 如果 obj 不是对象或数组，直接返回
@@ -56,7 +56,7 @@ export type Customizer<T = unknown> = (targetValue: T, sourceValue: T) => T
  * @returns {T & U} 合并后的对象
  * @example
  * ```更多示例```
- * {../../docs/test/object/deepMerge.md}
+ * {@include ../../../../docs/test/utils/object/deepMerge.md}
  */
 export const deepMerge = <T, U>(target: T, source: U, customizer?: Customizer): T & U => {
   // 如果 target 或 source 不是对象或数组，直接返回
