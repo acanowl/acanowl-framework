@@ -1,8 +1,8 @@
-import { existsSync, mkdir, readdirSync, readFile, writeFile } from 'fs'
+import { copyFileSync, existsSync, mkdir, readdirSync, readFile, writeFile } from 'fs'
 import { fileURLToPath } from 'url'
 import { promisify } from 'util'
 import { parse } from '@babel/parser'
-import { join, normalize, sep } from 'path'
+import { basename, join, normalize, sep } from 'path'
 
 const readFileAsync = promisify(readFile)
 const writeFileAsync = promisify(writeFile)
@@ -13,8 +13,23 @@ const [PACKAGES_KEY, DOCS_KEY] = ['packages', 'docs']
 const packagesUrl = fileURLToPath(new URL(PACKAGES_KEY, import.meta.url))
 const docsUrl = fileURLToPath(new URL(DOCS_KEY, import.meta.url))
 
-const fileTypeRegex = /\.(test|spec)\.(js|jsx|ts|tsx)$/ // 正则表达式
-const fileNameRegex = /[\\/](\w+)[\\/][^\\/]+\.(test|spec)\.(js|jsx|ts|tsx)$/ // 正则表达式
+// =========================================================================================================
+// ============================================== common 方法 ==============================================
+
+// 递归获取所有测试文件地址
+const getTestFilesRecursive = async (dir, regex) => {
+  const files = []
+  const entries = readdirSync(dir, { withFileTypes: true })
+  for (const entry of entries) {
+    const fullPath = join(dir, entry.name)
+    if (entry.isDirectory()) {
+      files.push(...(await getTestFilesRecursive(fullPath, regex)))
+    } else if (entry.isFile() && regex.test(entry.name)) {
+      files.push(fullPath)
+    }
+  }
+  return files
+}
 
 // 遍历 AST 辅助函数
 const traverse = (node, callback) => {
@@ -29,6 +44,23 @@ const traverse = (node, callback) => {
     }
   }
 }
+
+const getFolderNameAfterPackages = (filePath) => {
+  const parts = normalize(filePath).split(sep) // 按路径分隔符分割路径
+  const packagesIndex = parts.indexOf(PACKAGES_KEY) // 找到 'packages' 的索引
+  if (packagesIndex !== -1 && parts.length > packagesIndex + 1) {
+    return parts[packagesIndex + 1] // 返回 'packages' 后的第一个文件夹
+  }
+  return null // 如果未找到 'packages' 或后续没有子文件夹
+}
+
+// ==================================================================================================================
+// ============================================== 生成vitest测试用例文件 =============================================
+// ==================================================================================================================
+
+const fileTypeRegex = /\.(test|spec)\.(js|jsx|ts|tsx)$/ // 正则表达式
+const fileNameRegex = /[\\/](\w+)[\\/][^\\/]+\.(test|spec)\.(js|jsx|ts|tsx)$/ // 正则表达式
+
 // 移除最外层的 `{ }`
 const formatTestCode = (content, node) => {
   const bodyNode = node.arguments[1].body
@@ -67,15 +99,6 @@ const extractExpectDetails = (content, node) => {
     }
   })
   return expectDetails
-}
-
-const getFolderNameAfterPackages = (filePath) => {
-  const parts = normalize(filePath).split(sep) // 按路径分隔符分割路径
-  const packagesIndex = parts.indexOf(PACKAGES_KEY) // 找到 'packages' 的索引
-  if (packagesIndex !== -1 && parts.length > packagesIndex + 1) {
-    return parts[packagesIndex + 1] // 返回 'packages' 后的第一个文件夹
-  }
-  return null // 如果未找到 'packages' 或后续没有子文件夹
 }
 
 /**
@@ -166,26 +189,9 @@ const generateVitestMarkdown = async (fileContent) => {
   return markdownMap
 }
 
-// ==============
-
-// 递归获取所有测试文件地址
-const getTestFilesRecursive = async (dir) => {
-  const files = []
-  const entries = readdirSync(dir, { withFileTypes: true })
-  for (const entry of entries) {
-    const fullPath = join(dir, entry.name)
-    if (entry.isDirectory()) {
-      files.push(...(await getTestFilesRecursive(fullPath)))
-    } else if (entry.isFile() && fileTypeRegex.test(entry.name)) {
-      files.push(fullPath)
-    }
-  }
-  return files
-}
-
 const main = async () => {
   try {
-    const testFiles = await getTestFilesRecursive(packagesUrl)
+    const testFiles = await getTestFilesRecursive(packagesUrl, fileTypeRegex)
     testFiles.forEach(beforeGenerateVitestMarkdown)
   } catch (error) {
     console.error('获取测试文件失败:', error)
@@ -193,3 +199,34 @@ const main = async () => {
 }
 
 main()
+
+// ==================================================================================================================
+// ================================================ 复制changelog文件 ===============================================
+// ==================================================================================================================
+const logFileRegex = /(CHANGELOG)\.md$/
+
+const copyLogMarkdown = async (fileName) => {
+  // docs/log
+  const docsLogPath = join(docsUrl, 'log')
+  // 项目
+  const moduleName = getFolderNameAfterPackages(fileName)
+  const docsModulePath = join(docsLogPath, moduleName)
+  if (existsSync(docsLogPath) && existsSync(docsModulePath)) {
+    copyFileSync(fileName, join(docsModulePath, basename(fileName)))
+  } else {
+    if (!existsSync(docsLogPath)) await mkdirAsync(docsLogPath)
+    await mkdirAsync(docsModulePath)
+    await copyLogMarkdown(fileName)
+  }
+}
+
+const logMain = async () => {
+  try {
+    const logFiles = await getTestFilesRecursive(packagesUrl, logFileRegex)
+    logFiles.forEach(copyLogMarkdown)
+  } catch (error) {
+    console.error('获取Log文件失败:', error)
+  }
+}
+
+logMain()
