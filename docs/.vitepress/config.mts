@@ -1,6 +1,19 @@
 import { defineConfig } from 'vitepress'
-import pkg from '../../package.json'
 import navigation from '../navigation.json'
+
+const reg = /docs\/|\/src/g
+
+const formatSlideTab = (data: object) => {
+  const slideTabMap = Object.keys(data)
+  return slideTabMap.map((item) => ({ text: item.replace(reg, ''), link: `${item}/README.md` }))
+}
+const formatLogSlideTab = (data: object) => {
+  const slideTabMap = Object.keys(data)
+  return slideTabMap.map((item) => {
+    const modulesName = item.replace(reg, '')
+    return { text: modulesName, link: `log/${modulesName}/CHANGELOG.md` }
+  })
+}
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -25,9 +38,14 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
-      { text: '@acanowl/utils', link: 'docs/utils/src/README.md'},
-      { text: '@acanowl/types', link: 'docs/types/src/README.md'},
-      { text: `v${pkg.version}`, items: [{ text: '更新日志', link: 'CHANGELOG' }] }
+      {
+        text: '@acanowl 生态',
+        items: formatSlideTab(navigation)
+      },
+      {
+        text: '@acanowl 更新日志',
+        items: formatLogSlideTab(navigation)
+      }
     ],
     sidebar: navigation,
     outline: {

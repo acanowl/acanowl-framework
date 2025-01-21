@@ -8,7 +8,7 @@
 
 > **dateFormat**(`date`, `fmt`): `string`
 
-Defined in: [utils/src/date/index.ts:13](https://github.com/acanowl/acanowl-framework/blob/b5107a43a84c047f5172f446640c957c87bb9285/packages/utils/src/date/index.ts#L13)
+Defined in: [utils/src/date/index.ts:13](https://github.com/acanowl/acanowl-framework/blob/c79152f4a5639ba2e312f011a139bf95a1b76935/packages/utils/src/date/index.ts#L13)
 
 时间格式化
 

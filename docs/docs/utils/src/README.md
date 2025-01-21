@@ -14,6 +14,7 @@
 ## Functions
 
 - [errorCatch](functions/errorCatch.md)
+- [isTimestamp](functions/isTimestamp.md)
 
 ## Date
 

@@ -8,7 +8,7 @@
 
 > **isNull**(`value`): `value is null`
 
-Defined in: [utils/src/valid/index.ts:159](https://github.com/acanowl/acanowl-framework/blob/b5107a43a84c047f5172f446640c957c87bb9285/packages/utils/src/valid/index.ts#L159)
+Defined in: [utils/src/valid/index.ts:159](https://github.com/acanowl/acanowl-framework/blob/c79152f4a5639ba2e312f011a139bf95a1b76935/packages/utils/src/valid/index.ts#L159)
 
 是否是null
 

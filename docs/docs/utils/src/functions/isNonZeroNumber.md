@@ -8,7 +8,7 @@
 
 > **isNonZeroNumber**(`value`): `value is number`
 
-Defined in: [utils/src/valid/index.ts:81](https://github.com/acanowl/acanowl-framework/blob/b5107a43a84c047f5172f446640c957c87bb9285/packages/utils/src/valid/index.ts#L81)
+Defined in: [utils/src/valid/index.ts:81](https://github.com/acanowl/acanowl-framework/blob/c79152f4a5639ba2e312f011a139bf95a1b76935/packages/utils/src/valid/index.ts#L81)
 
 是否是非0数字
 
