@@ -43,7 +43,7 @@ describe('isObject', () => {
 import { isArray } from '../../dist'
 describe('isArray', () => {
   test('emptyArray', () => {
-    const emptyArray = []
+    const emptyArray: unknown = []
     expect(isArray(emptyArray)).toBe(true)
   })
   test('validArray', () => {

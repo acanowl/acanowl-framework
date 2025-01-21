@@ -1,7 +1,7 @@
 #### emptyArray
 
 ```typescript
-const emptyArray = []
+const emptyArray: unknown = []
 console.log(isArray(emptyArray))
 
 /* output => true */

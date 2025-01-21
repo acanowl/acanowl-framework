@@ -82,6 +82,18 @@ export const parseDateStringWithTime = (dateString: string = ''): Date | null =>
   return null
 }
 
+/**
+ * 判断是否是时间戳（字符串时间戳）
+ * @param {T} value 时间戳
+ * @returns {boolean}
+ */
+export const isTimestamp = <T>(value: T): value is T => {
+  if (String(value).length === 10 || String(value).length === 13) {
+    return isValidDate(new Date(Number(value)))
+  }
+  return false
+}
+
 export type UniversalTimeType = Date | number | string | null
 /**
  * 通用时间格式化方法
@@ -103,11 +115,16 @@ export const formatDate = (value: UniversalTimeType, fmt: string = 'yyyy-MM-dd',
     date = new Date(value)
   }
   if (isString(value)) {
-    // 过滤 - => /
-    const stringDate = formatDateSeparator(value)
-    // 格式化 yyyMMdd 或 yyyyMMddhhmmss 格式日期字符串
-    const parseDate = parseDateStringWithTime(stringDate)
-    date = parseDate || new Date(stringDate)
+    if (isTimestamp(value)) {
+      // 字符串时间戳
+      date = new Date(Number(value))
+    } else {
+      // 过滤 - => /
+      const stringDate = formatDateSeparator(value)
+      // 格式化 yyyMMdd 或 yyyyMMddhhmmss 格式日期字符串
+      const parseDate = parseDateStringWithTime(stringDate)
+      date = parseDate || new Date(stringDate)
+    }
   }
   // 判断是否是有效时间对象
   return isValidDate(date) ? dateFormat(date, fmt) : placeholder
