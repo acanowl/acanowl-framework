@@ -1,13 +1,12 @@
 {
   "name": "@acanowl/types",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "CAN types with typescript",
   "type": "module",
-  "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "vite build",
+    "build": "tsup",
     "release": "bumpp && npm publish",
     "typecheck": "tsc --noEmit",
     "prepublishOnly": "tsc && npm run build"
@@ -17,8 +16,5 @@
   ],
   "keywords": [],
   "author": "Eddy Hsu",
-  "license": "MIT",
-  "devDependencies": {
-    "bumpp": "^9.9.2"
-  }
+  "license": "MIT"
 }
