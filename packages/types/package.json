@@ -7,14 +7,17 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "build": "tsup",
-    "release": "bumpp && npm publish",
+    "release": "npm publish --registry=https://registry.npmjs.com/",
     "typecheck": "tsc --noEmit",
-    "prepublishOnly": "tsc && npm run build"
+    "prepublishOnly": "npm run build"
   },
   "files": [
     "dist"
   ],
   "keywords": [],
   "author": "Eddy Hsu",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "utility-types": "^3.11.0"
+  }
 }

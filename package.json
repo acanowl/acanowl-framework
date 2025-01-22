@@ -10,10 +10,11 @@
     "prepare:build": "pnpm -r -F=./packages/* prepublishOnly",
     "turbo:dev": "turbo dev",
     "turbo:build": "turbo build",
+    "turbo:release": "turbo release",
     "update": "pnpm -r -F=./packages/* update",
+    "commit": "cz",
     "changeset": "changeset && changeset version && git add . && cz",
     "build": "pnpm changeset && pnpm turbo:build",
-    "release": "changeset publish --registry=https://registry.npmjs.com/",
     "test:docs": "node ./generate.mjs",
     "test": "vitest",
     "test:ui": "vitest --ui"

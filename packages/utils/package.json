@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "tsup --watch",
     "build": "tsup",
+    "release": "npm publish --registry=https://registry.npmjs.com/",
     "prepublishOnly": "npm run build"
   },
   "files": [
@@ -20,9 +21,6 @@
   "author": "Eddy Hsu",
   "license": "MIT",
   "devDependencies": {
-    "@release-it/conventional-changelog": "^5.1.1",
-    "dotenv-cli": "^7.4.4",
-    "release-it": "^15.11.0",
     "vue": "^3.5.13"
   },
   "dependencies": {
