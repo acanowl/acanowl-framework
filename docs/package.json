@@ -1,11 +1,10 @@
 {
   "name": "@acanowl/docs",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "",
   "scripts": {
     "docs:dev": "concurrently \"typedoc --watch\" \"vitepress dev\"",
-    "docs:build": "vitepress build",
-    "docs:preview": "vitepress preview"
+    "docs:build": "vitepress build && sh deploy.sh"
   },
   "keywords": [],
   "author": "",

@@ -1,5 +1,11 @@
 # @acanowl/docs
 
+## 1.2.0
+
+### Minor Changes
+
+- 添加 vitepress 部署脚本，调整 docs/packages -> script
+
 ## 1.1.0
 
 ### Minor Changes
