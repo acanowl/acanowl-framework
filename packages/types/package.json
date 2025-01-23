@@ -1,6 +1,6 @@
 {
   "name": "@acanowl/types",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "CAN types with typescript",
   "type": "module",
   "module": "./dist/index.js",
