@@ -1,3 +1,4 @@
+export * from './arr'
 export * from './date'
 export * from './error'
 export * from './object'
