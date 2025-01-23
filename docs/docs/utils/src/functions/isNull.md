@@ -8,7 +8,7 @@
 
 > **isNull**(`value`): `value is null`
 
-Defined in: [utils/src/valid/index.ts:159](https://github.com/acanowl/acanowl-framework/blob/c79152f4a5639ba2e312f011a139bf95a1b76935/packages/utils/src/valid/index.ts#L159)
+Defined in: [utils/src/valid/index.ts:180](https://github.com/acanowl/acanowl-framework/blob/803929d309daee638a276dd80756bc2cc91479c5/packages/utils/src/valid/index.ts#L180)
 
 是否是null
 
@@ -27,20 +27,20 @@ true | false
 ## Example
 
 ```更多示例```
-#### nullValue
+#### 用例1-Null
 
 ```typescript
-const nullValue = null
-console.log(isNull(nullValue))
+const value = null
+console.log(isNull(value))
 
 /* output => true */
 ```
 
-#### undefinedValue
+#### 用例2-Undefined
 
 ```typescript
-const undefinedValue = undefined
-console.log(isNull(undefinedValue))
+const value = undefined
+console.log(isNull(value))
 
 /* output => false */
 ```

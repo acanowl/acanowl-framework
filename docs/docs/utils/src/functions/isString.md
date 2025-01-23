@@ -8,7 +8,7 @@
 
 > **isString**(`value`): `value is string`
 
-Defined in: [utils/src/valid/index.ts:48](https://github.com/acanowl/acanowl-framework/blob/c79152f4a5639ba2e312f011a139bf95a1b76935/packages/utils/src/valid/index.ts#L48)
+Defined in: [utils/src/valid/index.ts:58](https://github.com/acanowl/acanowl-framework/blob/803929d309daee638a276dd80756bc2cc91479c5/packages/utils/src/valid/index.ts#L58)
 
 是否是字符串
 
@@ -27,20 +27,29 @@ true | false
 ## Example
 
 ```更多示例```
-#### string
+#### 用例1-有效字符串
 
 ```typescript
-const string = 'string'
-console.log(isString(string))
+const value: string = 'string'
+console.log(isString(value))
 
 /* output => true */
 ```
 
-#### number
+#### 用例2-无效字符串
 
 ```typescript
-const number = 1
-console.log(isString(number))
+const value: string = ''
+console.log(isString(value))
+
+/* output => true */
+```
+
+#### 用例3-有效数字
+
+```typescript
+const value: number = 1
+console.log(isString(value))
 
 /* output => false */
 ```

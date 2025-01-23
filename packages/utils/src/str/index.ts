@@ -10,7 +10,7 @@ import { hasKey, isDefined, isNonZeroNumber, isValidNumber, isValidString } from
  * @returns {number}
  * @example
  * ```更多示例```
- * {@includs ../../docs/test/utils/str/getDecimalLength.md}
+ * {@include ../../../../docs/test/utils/str/getDecimalLength.md}
  */
 export const getDecimalLength = (str: unknown, n: number = 0): number => {
   let decimalLen = 0
@@ -28,7 +28,7 @@ export const getDecimalLength = (str: unknown, n: number = 0): number => {
  * @returns {PlainObject}
  * @example
  * ```更多示例```
- * {@includs ../../docs/test/utils/str/getUrlParams.md}
+ * {@include ../../../../docs/test/utils/str/getUrlParams.md}
  */
 export const getUrlParams = (url: string): PlainObject => {
   const params: PlainObject = {}
@@ -48,7 +48,7 @@ export const getUrlParams = (url: string): PlainObject => {
  * @returns {string}
  * @example
  * ```更多示例```
- * {@includs ../../docs/test/utils/str/getUrlParamsByKey.md}
+ * {@include ../../../../docs/test/utils/str/getUrlParamsByKey.md}
  */
 export const getUrlParamsByKey = (url: string, key: string): string => {
   const params = getUrlParams(url)

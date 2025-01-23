@@ -8,7 +8,7 @@
 
 > **isDate**(`value`): `value is Date`
 
-Defined in: [utils/src/valid/index.ts:115](https://github.com/acanowl/acanowl-framework/blob/c79152f4a5639ba2e312f011a139bf95a1b76935/packages/utils/src/valid/index.ts#L115)
+Defined in: [utils/src/valid/index.ts:136](https://github.com/acanowl/acanowl-framework/blob/803929d309daee638a276dd80756bc2cc91479c5/packages/utils/src/valid/index.ts#L136)
 
 是否是日期对象
 
@@ -27,20 +27,29 @@ true | false
 ## Example
 
 ```更多示例```
-#### date
+#### 用例1-有效时间对象
 
 ```typescript
-const date = new Date()
-console.log(isDate(date))
+const value = new Date()
+console.log(isDate(value))
 
 /* output => true */
 ```
 
-#### string
+#### 用例2-无效时间对象
 
 ```typescript
-const string = 'string'
-console.log(isDate(string))
+const value = new Date('error')
+console.log(isDate(value))
+
+/* output => true */
+```
+
+#### 用例3-有效字符串
+
+```typescript
+const value: string = 'string'
+console.log(isDate(value))
 
 /* output => false */
 ```

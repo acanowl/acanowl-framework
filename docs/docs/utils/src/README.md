@@ -31,9 +31,13 @@
 ## String
 
 - [getDecimalLength](functions/getDecimalLength.md)
+- [getUrlParams](functions/getUrlParams.md)
+- [getUrlParamsByKey](functions/getUrlParamsByKey.md)
 
 ## Valid
 
+- [getObjectType](functions/getObjectType.md)
+- [hasKey](functions/hasKey.md)
 - [isArray](functions/isArray.md)
 - [isBoolean](functions/isBoolean.md)
 - [isDate](functions/isDate.md)
@@ -48,3 +52,4 @@
 - [isString](functions/isString.md)
 - [isValidDate](functions/isValidDate.md)
 - [isValidNumber](functions/isValidNumber.md)
+- [isValidString](functions/isValidString.md)

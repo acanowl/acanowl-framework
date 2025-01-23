@@ -8,7 +8,7 @@
 
 > **isPlainObject**(`value`): `value is PlainObject`
 
-Defined in: [utils/src/valid/index.ts:14](https://github.com/acanowl/acanowl-framework/blob/c79152f4a5639ba2e312f011a139bf95a1b76935/packages/utils/src/valid/index.ts#L14)
+Defined in: [utils/src/valid/index.ts:24](https://github.com/acanowl/acanowl-framework/blob/803929d309daee638a276dd80756bc2cc91479c5/packages/utils/src/valid/index.ts#L24)
 
 是否是纯对象
 
@@ -27,29 +27,29 @@ true | false
 ## Example
 
 ```更多示例```
-#### emptyObject
+#### 用例1-空对象
 
 ```typescript
-const emptyObject = {}
-console.log(isPlainObject(emptyObject))
+const value = {}
+console.log(isPlainObject(value))
 
 /* output => true */
 ```
 
-#### validObject
+#### 用例2-有效对象
 
 ```typescript
-const validObject = { a: 1 }
-console.log(isPlainObject(validObject))
+const value = { a: 1 }
+console.log(isPlainObject(value))
 
 /* output => true */
 ```
 
-#### validArray
+#### 用例3-有效数组
 
 ```typescript
-const validArray = [1]
-console.log(isPlainObject(validArray))
+const value = [1]
+console.log(isPlainObject(value))
 
 /* output => false */
 ```

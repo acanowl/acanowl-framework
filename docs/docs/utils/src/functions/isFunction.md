@@ -8,7 +8,7 @@
 
 > **isFunction**\<`T`\>(`value`): `value is GenFn<T>`
 
-Defined in: [utils/src/valid/index.ts:103](https://github.com/acanowl/acanowl-framework/blob/c79152f4a5639ba2e312f011a139bf95a1b76935/packages/utils/src/valid/index.ts#L103)
+Defined in: [utils/src/valid/index.ts:124](https://github.com/acanowl/acanowl-framework/blob/803929d309daee638a276dd80756bc2cc91479c5/packages/utils/src/valid/index.ts#L124)
 
 是否是函数(包括AsyncFunction)
 
@@ -31,29 +31,29 @@ true | false
 ## Example
 
 ```更多示例```
-#### func
+#### 用例1-普通函数
 
 ```typescript
-const func = function () {}
-console.log(isFunction(func))
+const value = function () {}
+console.log(isFunction(value))
 
 /* output => true */
 ```
 
-#### asyncfunc
+#### 用例2-异步函数
 
 ```typescript
-const asyncfunc = async function () {}
-console.log(isFunction(asyncfunc))
+const value = async function () {}
+console.log(isFunction(value))
 
 /* output => true */
 ```
 
-#### nullValue
+#### 用例3-Null
 
 ```typescript
-const nullValue = null
-console.log(isFunction(nullValue))
+const value = null
+console.log(isFunction(value))
 
 /* output => false */
 ```

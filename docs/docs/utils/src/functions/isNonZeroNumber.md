@@ -8,7 +8,7 @@
 
 > **isNonZeroNumber**(`value`): `value is number`
 
-Defined in: [utils/src/valid/index.ts:81](https://github.com/acanowl/acanowl-framework/blob/c79152f4a5639ba2e312f011a139bf95a1b76935/packages/utils/src/valid/index.ts#L81)
+Defined in: [utils/src/valid/index.ts:102](https://github.com/acanowl/acanowl-framework/blob/803929d309daee638a276dd80756bc2cc91479c5/packages/utils/src/valid/index.ts#L102)
 
 是否是非0数字
 
@@ -27,4 +27,38 @@ true | false
 ## Example
 
 ```更多示例```
-{../../../../docs/test/utils/valid/isNonZeroNumber.md}
+#### 用例1-有效数字
+
+```typescript
+const value: number = 1
+console.log(isNonZeroNumber(value))
+
+/* output => true */
+```
+
+#### 用例2-无效数字NaN
+
+```typescript
+const value = NaN
+console.log(isNonZeroNumber(value))
+
+/* output => false */
+```
+
+#### 用例3-数字0
+
+```typescript
+const value: number = 0
+console.log(isNonZeroNumber(value))
+
+/* output => false */
+```
+
+#### 用例4-有效字符串
+
+```typescript
+const value: string = 'string'
+console.log(isNonZeroNumber(value))
+
+/* output => false */
+```

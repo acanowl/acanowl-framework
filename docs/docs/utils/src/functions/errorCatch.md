@@ -8,7 +8,7 @@
 
 > **errorCatch**\<`T`\>(`error`): `T`
 
-Defined in: [utils/src/error/index.ts:3](https://github.com/acanowl/acanowl-framework/blob/c79152f4a5639ba2e312f011a139bf95a1b76935/packages/utils/src/error/index.ts#L3)
+Defined in: [utils/src/error/index.ts:3](https://github.com/acanowl/acanowl-framework/blob/803929d309daee638a276dd80756bc2cc91479c5/packages/utils/src/error/index.ts#L3)
 
 ## Type Parameters
 

@@ -8,7 +8,7 @@
 
 > **isObject**(`value`): value is PlainObject \| unknown\[\]
 
-Defined in: [utils/src/valid/index.ts:36](https://github.com/acanowl/acanowl-framework/blob/c79152f4a5639ba2e312f011a139bf95a1b76935/packages/utils/src/valid/index.ts#L36)
+Defined in: [utils/src/valid/index.ts:46](https://github.com/acanowl/acanowl-framework/blob/803929d309daee638a276dd80756bc2cc91479c5/packages/utils/src/valid/index.ts#L46)
 
 是否是对象(不包括null, Date, RegExp)
 
@@ -27,47 +27,47 @@ true | false
 ## Example
 
 ```更多示例```
-#### emptyObject
+#### 用例1-空对象
 
 ```typescript
-const emptyObject = {}
-console.log(isObject(emptyObject))
+const value = {}
+console.log(isObject(value))
 
 /* output => true */
 ```
 
-#### validObject
+#### 用例2-有效对象
 
 ```typescript
-const validObject = { a: 1 }
-console.log(isObject(validObject))
+const value = { a: 1 }
+console.log(isObject(value))
 
 /* output => true */
 ```
 
-#### validArray
+#### 用例3-有效数组
 
 ```typescript
-const validArray = [1]
-console.log(isObject(validArray))
+const value = [1]
+console.log(isObject(value))
 
 /* output => true */
 ```
 
-#### date
+#### 用例4-有效时间对象
 
 ```typescript
-const date = new Date()
-console.log(isObject(date))
+const value = new Date()
+console.log(isObject(value))
 
 /* output => false */
 ```
 
-#### nullValue
+#### 用例-Null
 
 ```typescript
-const nullValue = null
-console.log(isObject(nullValue))
+const value = null
+console.log(isObject(value))
 
 /* output => false */
 ```
