@@ -7,7 +7,7 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "build": "tsup",
-    "release": "npm publish --registry=https://registry.npmjs.com/",
+    "release": "pnpm publish --no-git-checks --report-summary --force",
     "typecheck": "tsc --noEmit",
     "prepublishOnly": "npm run build"
   },
