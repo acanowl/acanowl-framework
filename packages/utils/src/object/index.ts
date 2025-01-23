@@ -1,5 +1,5 @@
 import type { PlainObject } from '@acanowl/types'
-import { isArray, isDefined, isPlainObject } from '../valid'
+import { hasKey, isArray, isDefined, isPlainObject } from '../valid'
 
 /**
  * 深度克隆
@@ -38,7 +38,7 @@ export const deepClone = <T>(obj: T): T => {
   // 处理对象
   const objCopy: PlainObject = {}
   for (const key in obj) {
-    if (Object.prototype.hasOwnProperty.call(obj, key)) {
+    if (hasKey(obj, key)) {
       objCopy[key] = deepClone((obj as PlainObject)[key])
     }
   }
@@ -68,7 +68,7 @@ export const deepMerge = <T, U>(target: T, source: U, customizer?: Customizer): 
     const result = deepClone(target) as T & U
     for (const key in source) {
       // 如果 key 已存在于 target，递归合并
-      if (Object.prototype.hasOwnProperty.call(source, key)) {
+      if (hasKey(source, key)) {
         ;(result as PlainObject)[key] = deepMerge(target[key], source[key], customizer)
       }
     }

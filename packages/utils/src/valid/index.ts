@@ -1,6 +1,16 @@
 import type { GenFn, PlainObject } from '@acanowl/types'
 
-const getObjectType = (obj: unknown) => Object.prototype.toString.call(obj).slice(1, -1).split(' ')[1]
+/**
+ * 类型判断
+ * @group Valid
+ * @param {unknown} value
+ * @returns {string}
+ * @example
+ * ```更多示例```
+ * {@include ../../../../docs/test/utils/valid/getObjectType.md}
+ */
+export const getObjectType = (value: unknown): string =>
+  Object.prototype.toString.call(value).slice(1, -1).split(' ')[1]
 
 /**
  * 是否是纯对象
@@ -48,6 +58,17 @@ export const isObject = (value: unknown): value is PlainObject | Array<unknown> 
 export const isString = (value: unknown): value is string => getObjectType(value) === 'String'
 
 /**
+ * 是否是有效字符串
+ * @group Valid
+ * @param {unknown} value
+ * @returns {boolean} true | false
+ * @example
+ * ```更多示例```
+ * {@include ../../../../docs/test/utils/valid/isValidString.md}
+ */
+export const isValidString = (value: unknown): value is string => isString(value) && value.trim() !== ''
+
+/**
  * 是否是数字
  * @group Valid
  * @param {unknown} value
@@ -65,7 +86,7 @@ export const isNumber = (value: unknown): value is number => getObjectType(value
  * @returns {boolean} true | false
  * @example
  * ```更多示例```
- * {../../../../docs/test/utils/valid/isValidNumber.md}
+ * {@include ../../../../docs/test/utils/valid/isValidNumber.md}
  */
 export const isValidNumber = (value: unknown): value is number => isNumber(value) && !isNaN(value)
 
@@ -76,9 +97,9 @@ export const isValidNumber = (value: unknown): value is number => isNumber(value
  * @returns {boolean} true | false
  * @example
  * ```更多示例```
- * {../../../../docs/test/utils/valid/isNonZeroNumber.md}
+ * {@include ../../../../docs/test/utils/valid/isNonZeroNumber.md}
  */
-export const isNonZeroNumber = (value: unknown): value is number => isValidNumber(value) && value === 0
+export const isNonZeroNumber = (value: unknown): value is number => isValidNumber(value) && value !== 0
 
 /**
  * 是否是布尔值
@@ -157,3 +178,15 @@ export const isDefined = <T>(value: T | undefined | null): value is T => value !
  * {@include ../../../../docs/test/utils/valid/isNull.md}
  */
 export const isNull = (value: unknown): value is null => value === null
+
+/**
+ * 是否存在key
+ * @group Valid
+ * @param {PlainObject | unknown[]} obj 目标对象或数组
+ * @param {PropertyKey} key 指定key值
+ * @returns {boolean}
+ * @example
+ * ```更多示例```
+ * {@include ../../../../docs/test/utils/valid/hasKey.md}
+ */
+export const hasKey = <T>(obj: T, key: PropertyKey): key is keyof T => Object.prototype.hasOwnProperty.call(obj, key)
