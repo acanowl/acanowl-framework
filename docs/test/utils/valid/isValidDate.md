@@ -2,7 +2,7 @@
 
 ```typescript
 const value = new Date()
-console.log(isDate(value))
+console.log(isValidDate(value))
 
 /* output => true */
 ```
@@ -11,16 +11,16 @@ console.log(isDate(value))
 
 ```typescript
 const value = new Date('error')
-console.log(isDate(value))
+console.log(isValidDate(value))
 
-/* output => true */
+/* output => false */
 ```
 
 #### 用例3-有效字符串
 
 ```typescript
 const value: string = 'string'
-console.log(isDate(value))
+console.log(isValidDate(value))
 
 /* output => false */
 ```

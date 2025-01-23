@@ -1,17 +1,26 @@
-#### string
+#### 用例1-有效字符串
 
 ```typescript
-const string = 'string'
-console.log(isString(string))
+const value: string = 'string'
+console.log(isString(value))
 
 /* output => true */
 ```
 
-#### number
+#### 用例2-无效字符串
 
 ```typescript
-const number = 1
-console.log(isString(number))
+const value: string = ''
+console.log(isString(value))
+
+/* output => true */
+```
+
+#### 用例3-有效数字
+
+```typescript
+const value: number = 1
+console.log(isString(value))
 
 /* output => false */
 ```

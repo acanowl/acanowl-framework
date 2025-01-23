@@ -1,26 +1,26 @@
-#### emptyObject
+#### 用例1-空对象
 
 ```typescript
-const emptyObject = {}
-console.log(isPlainObject(emptyObject))
+const value = {}
+console.log(isPlainObject(value))
 
 /* output => true */
 ```
 
-#### validObject
+#### 用例2-有效对象
 
 ```typescript
-const validObject = { a: 1 }
-console.log(isPlainObject(validObject))
+const value = { a: 1 }
+console.log(isPlainObject(value))
 
 /* output => true */
 ```
 
-#### validArray
+#### 用例3-有效数组
 
 ```typescript
-const validArray = [1]
-console.log(isPlainObject(validArray))
+const value = [1]
+console.log(isPlainObject(value))
 
 /* output => false */
 ```

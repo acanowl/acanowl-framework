@@ -1,17 +1,17 @@
-#### boolean
+#### 用例1-布尔值
 
 ```typescript
-const boolean = true
-console.log(isBoolean(boolean))
+const value = true
+console.log(isBoolean(value))
 
 /* output => true */
 ```
 
-#### string
+#### 用例2-有效字符串
 
 ```typescript
-const string = 'string'
-console.log(isBoolean(string))
+const value: string = 'string'
+console.log(isBoolean(value))
 
 /* output => false */
 ```

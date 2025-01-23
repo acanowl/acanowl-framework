@@ -2,7 +2,7 @@
 
 ```typescript
 const value: number = 1
-console.log(isNumber(value))
+console.log(isNonZeroNumber(value))
 
 /* output => true */
 ```
@@ -11,25 +11,25 @@ console.log(isNumber(value))
 
 ```typescript
 const value = NaN
-console.log(isNumber(value))
+console.log(isNonZeroNumber(value))
 
-/* output => true */
+/* output => false */
 ```
 
 #### 用例3-数字0
 
 ```typescript
 const value: number = 0
-console.log(isNumber(value))
+console.log(isNonZeroNumber(value))
 
-/* output => true */
+/* output => false */
 ```
 
 #### 用例4-有效字符串
 
 ```typescript
 const value: string = 'string'
-console.log(isNumber(value))
+console.log(isNonZeroNumber(value))
 
 /* output => false */
 ```

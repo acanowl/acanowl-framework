@@ -1,35 +1,35 @@
-#### regExp
+#### 用例1-regExp
 
 ```typescript
-const regExp = /regExp/
-console.log(isDefined(regExp))
+const value = /regExp/
+console.log(isDefined(value))
 
 /* output => true */
 ```
 
-#### string
+#### 用例2-string
 
 ```typescript
-const string = 'string'
-console.log(isDefined(string))
+const value: string = 'string'
+console.log(isDefined(value))
 
 /* output => true */
 ```
 
-#### nullValue
+#### 用例3-Null
 
 ```typescript
-const nullValue = null
-console.log(isDefined(nullValue))
+const value = null
+console.log(isDefined(value))
 
 /* output => false */
 ```
 
-#### undefinedValue
+#### 用例4-Undefined
 
 ```typescript
-const undefinedValue = undefined
-console.log(isDefined(undefinedValue))
+const value = undefined
+console.log(isDefined(value))
 
 /* output => false */
 ```

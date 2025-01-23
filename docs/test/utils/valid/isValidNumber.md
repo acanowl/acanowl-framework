@@ -2,7 +2,7 @@
 
 ```typescript
 const value: number = 1
-console.log(isNumber(value))
+console.log(isValidNumber(value))
 
 /* output => true */
 ```
@@ -11,16 +11,16 @@ console.log(isNumber(value))
 
 ```typescript
 const value = NaN
-console.log(isNumber(value))
+console.log(isValidNumber(value))
 
-/* output => true */
+/* output => false */
 ```
 
 #### 用例3-数字0
 
 ```typescript
 const value: number = 0
-console.log(isNumber(value))
+console.log(isValidNumber(value))
 
 /* output => true */
 ```
@@ -29,7 +29,7 @@ console.log(isNumber(value))
 
 ```typescript
 const value: string = 'string'
-console.log(isNumber(value))
+console.log(isValidNumber(value))
 
 /* output => false */
 ```

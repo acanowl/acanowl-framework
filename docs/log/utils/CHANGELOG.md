@@ -1,13 +1,12 @@
 # Changelog
 
-## [1.0.0] - 2025-01-09
+## 1.1.0
 
-### Added - 新增功能介绍
+### Minor Changes
 
-### Changed - 变化说明
+- utils/types 构建方式调整为 tsup
 
-### Deprecated - 弃用功能
+### Patch Changes
 
-### Removed - 移除功能
-
-### Fixed - 修复的 bug
+- Updated dependencies
+  - @acanowl/types@1.1.0

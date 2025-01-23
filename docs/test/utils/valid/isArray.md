@@ -1,25 +1,25 @@
-#### emptyArray
+#### 用例1-空数组
 
 ```typescript
-const emptyArray: unknown = []
-console.log(isArray(emptyArray))
+const value: unknown = []
+console.log(isArray(value))
 
 /* output => true */
 ```
 
-#### validArray
+#### 用例2-有效数组
 
 ```typescript
-const validArray = [1]
-console.log(isArray(validArray))
+const value = [1]
+console.log(isArray(value))
 
 /* output => true */
 ```
 
-#### string
+#### 用例3-有效字符串
 
 ```typescript
-const string = 'string'
+const string: string = 'string'
 console.log(isArray(string))
 
 /* output => false */

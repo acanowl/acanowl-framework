@@ -1,17 +1,17 @@
-#### nullValue
+#### 用例1-Null
 
 ```typescript
-const nullValue = null
-console.log(isNull(nullValue))
+const value = null
+console.log(isNull(value))
 
 /* output => true */
 ```
 
-#### undefinedValue
+#### 用例2-Undefined
 
 ```typescript
-const undefinedValue = undefined
-console.log(isNull(undefinedValue))
+const value = undefined
+console.log(isNull(value))
 
 /* output => false */
 ```

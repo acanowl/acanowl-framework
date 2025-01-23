@@ -1,26 +1,26 @@
-#### func
+#### 用例1-普通函数
 
 ```typescript
-const func = function () {}
-console.log(isFunction(func))
+const value = function () {}
+console.log(isFunction(value))
 
 /* output => true */
 ```
 
-#### asyncfunc
+#### 用例2-异步函数
 
 ```typescript
-const asyncfunc = async function () {}
-console.log(isFunction(asyncfunc))
+const value = async function () {}
+console.log(isFunction(value))
 
 /* output => true */
 ```
 
-#### nullValue
+#### 用例3-Null
 
 ```typescript
-const nullValue = null
-console.log(isFunction(nullValue))
+const value = null
+console.log(isFunction(value))
 
 /* output => false */
 ```

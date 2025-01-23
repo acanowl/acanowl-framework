@@ -1,17 +1,17 @@
-#### regExp
+#### 用例1-正则
 
 ```typescript
-const regExp = /regExp/
-console.log(isRegExp(regExp))
+const value = /regExp/
+console.log(isRegExp(value))
 
 /* output => true */
 ```
 
-#### string
+#### 用例2-有效字符串
 
 ```typescript
-const string = 'string'
-console.log(isRegExp(string))
+const value: string = 'string'
+console.log(isRegExp(value))
 
 /* output => false */
 ```
