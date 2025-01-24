@@ -3,8 +3,8 @@ import { describe, expect, test } from 'vitest'
 import { getDecimalLength } from '../../dist'
 describe('getDecimalLength', () => {
   test('用例1-数字', () => {
-    const value = 12.3
-    expect(getDecimalLength(value)).toBe(1)
+    const value = 12.334
+    expect(getDecimalLength(value)).toBe(3)
   })
   test('用例2-数字', () => {
     const value = 12.3
@@ -93,5 +93,21 @@ describe('roundNumber', () => {
   test('用例5-无效数据', () => {
     const value = null
     expect(roundNumber(value, 3)).toBe('')
+  })
+})
+
+import { currency } from '../../dist'
+describe('currency', () => {
+  test('用例1-无小数位', () => {
+    const value: string = '10000.495'
+    expect(currency(value)).toBe('10,000.495')
+  })
+  test('用例2-小数位长度为0', () => {
+    const value: string = '10000.495'
+    expect(currency(value, 0)).toBe('10,000')
+  })
+  test('用例3-负数、小数位长度为2', () => {
+    const value: number = -10203040.495
+    expect(currency(value, 2)).toBe('-10,203,040.50')
   })
 })
