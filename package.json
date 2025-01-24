@@ -12,7 +12,7 @@
     "turbo:build": "turbo build",
     "turbo:release": "turbo release",
     "update": "pnpm -r -F=./packages/* update",
-    "commit": "changeset && git add && cz",
+    "commit": "changeset && git add . && cz",
     "changeset": "changeset && changeset version && git add . && cz",
     "build": "pnpm changeset && pnpm turbo:build",
     "test:docs": "node ./generate.mjs",

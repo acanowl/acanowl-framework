@@ -71,3 +71,27 @@ describe('getUrlParamsByKey', () => {
     expect(getUrlParamsByKey(value, 'sort')).toBe('id')
   })
 })
+
+import { roundNumber } from '../../dist'
+describe('roundNumber', () => {
+  test('用例1-无小数位', () => {
+    const value: string = '0.495'
+    expect(roundNumber(value)).toBe('0.495')
+  })
+  test('用例2-小数位长度为0', () => {
+    const value: string = '10.50'
+    expect(roundNumber(value, 0)).toBe('11')
+  })
+  test('用例3-数字、小数位长度为2', () => {
+    const value: number = 0.495
+    expect(roundNumber(value, 2)).toBe('0.50')
+  })
+  test('用例4-小数位长度为4', () => {
+    const value: string = '0.495'
+    expect(roundNumber(value, 4)).toBe('0.4950')
+  })
+  test('用例5-无效数据', () => {
+    const value = null
+    expect(roundNumber(value, 3)).toBe('')
+  })
+})

@@ -54,3 +54,22 @@ export const getUrlParamsByKey = (url: string, key: string): string => {
   const params = getUrlParams(url)
   return hasKey(params, key) ? ((params[key] || '') as string) : ''
 }
+
+/**
+ * 四舍五入
+ * @param {unknown} value 需四舍五入的数值
+ * @param {number | undefined} limit 小数位长度
+ * @returns {string} 四舍五入后的结果
+ * @example
+ * ```更多示例```
+ * {@include ../../../../docs/test/utils/str/roundNumber.md}
+ */
+export const roundNumber = (value: unknown, limit?: number): string => {
+  if (isDefined(value) && (isValidNumber(value) || isValidString(value))) {
+    // 0~N => limit / undefined => 原有小数位
+    limit = isValidNumber(limit) ? limit : getDecimalLength(value)
+    const factor = Math.pow(10, limit)
+    return (Math.round(Number(value) * factor) / factor).toFixed(limit)
+  }
+  return ''
+}
