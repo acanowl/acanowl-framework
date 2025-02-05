@@ -79,10 +79,7 @@ export const roundNumber = (value: unknown, limit?: number): string => {
     }
 
     // 将数字转换为字符串
-    const valueStr = absoluteValue
-      .toFixed(20)
-      .replace(/(\.\d*?[1-9])0+$/, '$1')
-      .replace(/\.$/, '')
+    const valueStr = absoluteValue.toString()
 
     // 分割整数部分和小数部分
     let [integerPart, decimalPart = ''] = valueStr.split('.')
