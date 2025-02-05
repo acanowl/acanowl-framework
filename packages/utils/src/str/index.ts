@@ -67,10 +67,50 @@ export const roundNumber = (value: unknown, limit?: number): string => {
   if (isDefined(value) && (isValidNumber(value) || isValidString(value))) {
     // 0~N => limit / undefined => 原有小数位
     limit = getDecimalLength(value, limit)
-    const factor = Math.pow(10, limit)
-    // 避免 value * factor 出现精度丢失问题
-    const scienceValue = Number((Number(value) * factor).toFixed(limit))
-    return (Math.round(scienceValue) / factor).toFixed(limit)
+
+    // 处理负数的情况
+    const isNegative = Number(value) < 0
+    const absoluteValue = Math.abs(Number(value))
+
+    // 如果 limit=0，直接对整数部分四舍五入
+    if (limit === 0) {
+      const roundedValue = Math.round(absoluteValue)
+      return isNegative ? `-${roundedValue}` : `${roundedValue}`
+    }
+
+    // 将数字转换为字符串
+    const valueStr = absoluteValue.toString()
+
+    // 分割整数部分和小数部分
+    let [integerPart, decimalPart = ''] = valueStr.split('.')
+
+    // 补齐小数部分
+    decimalPart = decimalPart.padEnd(limit, '0')
+
+    // 截取需要保留的小数位数
+    const preservedDecimals = decimalPart.slice(0, limit)
+    const nextDecimal = decimalPart[limit] || '0' // 下一位小数
+
+    // 判断是否需要进位
+    let roundedDecimal = preservedDecimals
+    if (nextDecimal >= '5') {
+      // 手动进位
+      let temp = (parseInt(preservedDecimals, 10) + 1).toString()
+
+      // 处理进位到整数部分
+      if (temp.length > limit) {
+        const carry = parseInt(temp.slice(0, temp.length - limit), 10)
+        integerPart = (parseInt(integerPart, 10) + carry).toString()
+        temp = temp.slice(-limit) // 保留后 limit 位
+      }
+      roundedDecimal = temp.padStart(limit, '0') // 补齐前导零
+    }
+    // 确保小数部分长度正确（补零到指定位数）
+    roundedDecimal = roundedDecimal.padEnd(limit, '0')
+    // 组合整数部分和小数部分
+    const roundedValue = `${integerPart}.${roundedDecimal}`
+
+    return isNegative ? `-${roundedValue}` : `${roundedValue}`
   }
   return ''
 }

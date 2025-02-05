@@ -86,11 +86,19 @@ describe('roundNumber', () => {
     const value: number = 0.495
     expect(roundNumber(value, 2)).toBe('0.50')
   })
-  test('用例4-小数位长度为4', () => {
+  test('用例4-负数、数字、小数位长度为2', () => {
+    const value: number = -10203040.495
+    expect(roundNumber(value, 2)).toBe('-10203040.50')
+  })
+  test('用例5-小数位长度为4', () => {
     const value: string = '0.495'
     expect(roundNumber(value, 4)).toBe('0.4950')
   })
-  test('用例5-无效数据', () => {
+  test('用例6-小数位长度为0', () => {
+    const value: number = 43.59
+    expect(roundNumber(value, 0)).toBe('44')
+  })
+  test('用例7-无效数据', () => {
     const value = null
     expect(roundNumber(value, 3)).toBe('')
   })
