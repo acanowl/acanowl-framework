@@ -1,10 +1,10 @@
 #### 用例1-数字
 
 ```typescript
-const value = 12.3
+const value = 12.334
 console.log(getDecimalLength(value))
 
-/* output => 1 */
+/* output => 3 */
 ```
 
 #### 用例2-数字
