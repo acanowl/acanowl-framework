@@ -79,7 +79,10 @@ export const roundNumber = (value: unknown, limit?: number): string => {
     }
 
     // 将数字转换为字符串
-    const valueStr = absoluteValue.toString()
+    const valueStr = absoluteValue
+      .toFixed(20)
+      .replace(/(\.\d*?[1-9])0+$/, '$1')
+      .replace(/\.$/, '')
 
     // 分割整数部分和小数部分
     let [integerPart, decimalPart = ''] = valueStr.split('.')
@@ -95,15 +98,14 @@ export const roundNumber = (value: unknown, limit?: number): string => {
     let roundedDecimal = preservedDecimals
     if (nextDecimal >= '5') {
       // 手动进位
-      let temp = (parseInt(preservedDecimals, 10) + 1).toString()
-
+      let temp = (BigInt(preservedDecimals.padEnd(limit, '0')) + 1n).toString().padStart(limit, '0')
       // 处理进位到整数部分
       if (temp.length > limit) {
         const carry = parseInt(temp.slice(0, temp.length - limit), 10)
-        integerPart = (parseInt(integerPart, 10) + carry).toString()
+        integerPart = (BigInt(integerPart) + BigInt(carry)).toString()
         temp = temp.slice(-limit) // 保留后 limit 位
       }
-      roundedDecimal = temp.padStart(limit, '0') // 补齐前导零
+      roundedDecimal = temp
     }
     // 确保小数部分长度正确（补零到指定位数）
     roundedDecimal = roundedDecimal.padEnd(limit, '0')

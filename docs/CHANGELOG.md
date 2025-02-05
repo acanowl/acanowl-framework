@@ -1,5 +1,11 @@
 # @acanowl/docs
 
+## 1.2.1
+
+### Patch Changes
+
+- ed6dfcc: 新增 utils 方法
+
 ## 1.2.0
 
 ### Minor Changes

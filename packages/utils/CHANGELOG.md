@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.3.0
+
+### Minor Changes
+
+- 4bd199e: utils/str 新增四舍五入函数及相关测试用例
+- facbdc1: utils 新增 arr 工具函数
+
+### Patch Changes
+
+- 2b4a622: 修复 roundNumber 四舍五入异常问题
+- 优化 roundNumber 极大整数处理
+
 ## 1.2.0
 
 ### Minor Changes
