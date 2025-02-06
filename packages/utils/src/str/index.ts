@@ -95,14 +95,14 @@ export const roundNumber = (value: unknown, limit?: number): string => {
     let roundedDecimal = preservedDecimals
     if (nextDecimal >= '5') {
       // 手动进位
-      let temp = (BigInt(preservedDecimals.padEnd(limit, '0')) + 1n).toString().padStart(limit, '0')
+      let temp = (parseInt(preservedDecimals, 10) + 1).toString()
       // 处理进位到整数部分
       if (temp.length > limit) {
         const carry = parseInt(temp.slice(0, temp.length - limit), 10)
-        integerPart = (BigInt(integerPart) + BigInt(carry)).toString()
+        integerPart = (parseInt(integerPart, 10) + carry).toString()
         temp = temp.slice(-limit) // 保留后 limit 位
       }
-      roundedDecimal = temp
+      roundedDecimal = temp.padStart(limit, '0')
     }
     // 确保小数部分长度正确（补零到指定位数）
     roundedDecimal = roundedDecimal.padEnd(limit, '0')
