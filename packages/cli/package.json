@@ -1,6 +1,6 @@
 {
   "name": "@acanowl/cli",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "CAN Development Cli with typescript",
   "type": "module",
   "bin": {

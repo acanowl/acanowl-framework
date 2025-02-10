@@ -1,5 +1,13 @@
 # @acanowl/cli
 
+## 1.0.5
+
+### Patch Changes
+
+- Updated dependencies [3955390]
+- Updated dependencies
+  - @acanowl/utils@1.3.2
+
 ## 1.0.4
 
 ### Patch Changes

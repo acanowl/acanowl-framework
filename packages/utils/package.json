@@ -1,8 +1,9 @@
 {
   "name": "@acanowl/utils",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "description": "CAN utils with typescript",
   "type": "module",
+  "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {

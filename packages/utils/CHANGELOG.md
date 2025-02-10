@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.3.2
+
+### Patch Changes
+
+- 3955390: 移除 roundNumber 方法 BigInt 处理
+- 修复引用异常
+
 ## 1.3.1
 
 ### Patch Changes
